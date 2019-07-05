@@ -1,0 +1,27 @@
+/* Add here all your CSS customizations */
+.StripeElement {
+    padding: 16px;
+    border: 1px solid #ccc;
+    background-color: white;
+}
+
+/* .StripeElement--focus {
+    box-shadow: 0 1px 3px 0 #cfd7df;
+} */
+
+.StripeElement--invalid {
+    border-color: #fa755a;
+}
+
+.StripeElement--webkit-autofill {
+    background-color: #fefde5 !important;
+}
+#card-errors{
+    color:red;
+}
+#place-order:disabled {
+    cursor: not-allowed;
+}
+.btn-remove {
+    background: transparent;
+}
