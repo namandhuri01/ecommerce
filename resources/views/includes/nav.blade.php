@@ -189,57 +189,61 @@
                                 </ul>
                             </nav>
                         </div> 
-                        <a href="/login" class="btn btn-link text-color-default font-weight-bold order-3 d-none d-sm-block ml-auto mr-2 pt-1 text-1">Login</a>
-                        {{-- <div class="mini-cart order-4">
+                        @if (!Auth::check())
+                            <a href="/login" class="btn btn-link text-color-default font-weight-bold order-3 d-none d-sm-block ml-auto mr-2 pt-1 text-1">Login</a>
+                        @else
+                            <a href="#" class="btn btn-link text-color-default font-weight-bold order-3 d-none d-sm-block ml-auto mr-2 pt-1 text-1">{{auth::user()->name }}</a>
+                        @endif
+                            <div class="mini-cart order-4">
                             <span class="font-weight-bold font-primary">Cart </span>
                             <div class="mini-cart-icon">
                                 <img src="{{ asset('img/icons/cart-bag.svg') }}" class="img-fluid" alt="" />
-                                @if (Cart::instance('default')->count() > 0)
+                                {{-- @if (Cart::instance('default')->count() > 0)
                                     <span class="badge badge-primary rounded-circle">{{ Cart::instance('default')->count()}}</span>
-                                @endif
+                                @endif --}}
                             </div>
                             <div class="mini-cart-content">
-                                @if(Cart::count() > 0)
+                                {{-- @if(Cart::count() > 0) --}}
                                     <div class="inner-wrapper bg-light rounded">
                                         <div class="cart-mini">
-                                            @foreach (Cart::content() as $item)
+                                            {{-- @foreach (Cart::content() as $item) --}}
                                                 <div class="mini-cart-product">
                                                     <div class="row">
                                                         <div class="col-7">
-                                                            <h2 class="text-color-default font-secondary text-1 mt-3 mb-0">{{ $item->model->name }}</h2>
+                                                            {{-- <h2 class="text-color-default font-secondary text-1 mt-3 mb-0">{{ $item->model->name }}</h2> --}}
                                                             <strong class="text-color-dark">
-                                                                <span class="qty">{{ $item->qty }}x</span>
-                                                                <span class="product-price">{{ $item->model->presentPrice() }}</span>
+                                                                {{-- <span class="qty">{{ $item->qty }}x</span>
+                                                                <span class="product-price">{{ $item->model->presentPrice() }}</span> --}}
                                                             </strong>
                                                         </div>
                                                         <div class="col-5">
                                                             <div class="product-image">
-                                                                <a href="#" class="btn btn-light btn-rounded justify-content-center align-items-center"><i class="fas fa-times"></i></a>
-                                                                <img src="{{ asset('img/products/product-2.jpg') }}" class="img-fluid rounded" alt="" />
+                                                                {{-- <a href="#" class="btn btn-light btn-rounded justify-content-center align-items-center"><i class="fas fa-times"></i></a>
+                                                                <img src="{{ asset('img/products/product-2.jpg') }}" class="img-fluid rounded" alt="" /> --}}
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
-                                            @endforeach
+                                            {{-- @endforeach --}}
                                             <div class="mini-cart-total">
                                                 <div class="row">
                                                     <div class="col-6">
                                                         <strong class="text-color-dark">SUBTOTAL:</strong>
                                                     </div>
                                                     <div class="col-6 text-right">
-                                                        <strong class="total-value text-color-dark">{{ presentPrice(Cart::subtotal()) }}</strong>
+                                                        {{-- <strong class="total-value text-color-dark">{{ presentPrice(Cart::subtotal()) }}</strong> --}}
                                                     </div>
                                                     <div class="col-6">
                                                         <strong class="text-color-dark">Tax</strong>
                                                     </div>
                                                     <div class="col-6 text-right">
-                                                        <strong class="total-value text-color-dark">{{ presentPrice(Cart::tax()) }}</strong>
+                                                        {{-- <strong class="total-value text-color-dark">{{ presentPrice(Cart::tax()) }}</strong> --}}
                                                     </div>
                                                     <div class="col-6">
                                                         <strong class="text-color-dark">TOTAL:</strong>
                                                     </div>
                                                     <div class="col-6 text-right">
-                                                        <strong class="total-value text-color-dark">{{ presentPrice(Cart::total()) }}</strong>
+                                                        {{-- <strong class="total-value text-color-dark">{{ presentPrice(Cart::total()) }}</strong> --}}
                                                     </div>
                                                 </div>
                                             </div>
@@ -255,15 +259,15 @@
                                             </div>
                                         </div>
                                     </div>
-                                @else
+                                {{-- @else --}}
                                     <div class="inner-wrapper bg-light rounded">
                                         <div class="cart-mini text-center">
                                             <h3>No Item In Cart</h3>
                                         </div>
                                     </div>
-                                @endif
+                                {{-- @endif --}}
                             </div>
-                        </div> --}}
+                        </div>
                         <button class="header-btn-collapse-nav order-4 ml-3" data-toggle="collapse" data-target=".header-nav-main nav">
                             <span class="hamburguer">
                                 <span></span>
