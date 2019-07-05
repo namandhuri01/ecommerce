@@ -39,6 +39,8 @@ class RegistrationController extends Controller
 			'phone'			=> $request->phone,
 
 		]);
+		$role = Role::findOrFail(1);
+		$user->attachRole($role);
 		return view('login');
 		return response()->json(["data"=> $user],200);
 	} 

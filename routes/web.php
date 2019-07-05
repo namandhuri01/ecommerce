@@ -11,9 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-})->name('home');
+Route::get('/', 'MainPageController@index')->name('home');
 
 //Login Controller Routes
 Route::get('/login',function(){

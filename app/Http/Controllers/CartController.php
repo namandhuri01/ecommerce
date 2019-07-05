@@ -167,8 +167,9 @@ class CartController extends Controller
     private function getAmountAfterDiscount()
     {
         $tax = config('cart.tax') / 100;
-        $discount = session()->get('coupon')['discount'] ?? 0;
-        $newSubtotal = (Cart::subtotal() - $discount);
+        // $discount = session()->get('coupon')['discount'] ?? 0;
+        // $newSubtotal = (Cart::subtotal() - $discount);
+        $newSubtotal = Cart::subtotal();
         $newTax = $newSubtotal * $tax;
         $newTotal = $newSubtotal * (1 + $tax);
         

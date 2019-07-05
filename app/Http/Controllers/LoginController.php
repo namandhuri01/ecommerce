@@ -24,4 +24,12 @@ class LoginController extends Controller
         }
         dd($credentials);
     }
+
+    public function destroy()
+    
+    {
+    	auth()->logout();
+
+        return redirect('/');
+	}
 }

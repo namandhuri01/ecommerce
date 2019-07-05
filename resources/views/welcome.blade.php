@@ -217,7 +217,7 @@
                 </div>
                 <div class="row appear-animation" data-appear-animation="fadeInUpShorter" data-appear-animation-delay="400">
                     <div class="col">
-                        {{-- <div class="owl-carousel owl-theme nav-style-3" data-plugin-options="{'loop': true, 'autoplay': false, 'items': 4, 'nav': true, 'dots': false, 'margin': 20, 'autoplayHoverPause': true, 'autoHeight': true}">
+                        <div class="owl-carousel owl-theme nav-style-3" data-plugin-options="{'loop': true, 'autoplay': false, 'items': 4, 'nav': true, 'dots': false, 'margin': 20, 'autoplayHoverPause': true, 'autoHeight': true}">
                             @foreach($products as $product)
                                 <div class="text-center">
                                     <div class="image-frame image-frame-style-1 image-frame-effect-2 mb-3">
@@ -241,7 +241,7 @@
                                     <span class="old-price font-primary text-line-trough text-2"><strong class="text-color-default">{{$product->presentPrice()}}</strong></span>
                                 </div>
                             @endforeach
-                        </div> --}}
+                        </div>
                     </div>
                 </div>
             </div>
@@ -367,7 +367,7 @@
                             </div>
                         </div>
                     </div>
-                    {{-- <div class="row">
+                    <div class="row">
                         @foreach($products as $product)
                             <div class="col-sm-6 col-lg-3 mb-lg-0 appear-animation" data-appear-animation="fadeInUpShorter" data-appear-animation-delay="200">
                                 <div class="text-center mb-4">
@@ -393,7 +393,7 @@
                                 </div>
                             </div>
                         @endforeach
-                    </div> --}}
+                    </div>
                 </div>
             </section>
         {{-- End Grid section --}}
@@ -468,7 +468,7 @@
                     <div class="row">
                         <div class="col-md-4 appear-animation" data-appear-animation="fadeInRightShorter" data-appear-animation-delay="200">
                             <h2 class="font-weight-bold text-4 mb-4">New Arrivals Products</h2>
-                            {{-- @foreach($products as $product)
+                            @foreach($products as $product)
                                 <div class="product row align-items-center mb-4">
                                     <div class="col-4">
                                         <div class="image-frame image-frame-style-1 image-frame-effect-2">
@@ -490,12 +490,12 @@
                                         <span class="old-price font-primary text-line-trough text-2"><strong class="text-color-default">{{ $product->presentPrice() }}</strong></span>
                                     </div>
                                 </div>
-                            @endforeach --}}
+                            @endforeach
                         </div>
                         <div class="col-md-4 appear-animation" data-appear-animation="fadeInRightShorter" data-appear-animation-delay="400">
                             <h2 class="font-weight-bold text-4 mb-4">Top Rated Products</h2>
 
-                            {{-- @foreach($products as $product)
+                            @foreach($products as $product)
                                 <div class="product row align-items-center mb-4">
                                     <div class="col-4">
                                         <div class="image-frame image-frame-style-1 image-frame-effect-2">
@@ -517,7 +517,7 @@
                                         <span class="old-price font-primary text-line-trough text-2"><strong class="text-color-default">{{ $product->presentPrice() }}</strong></span>
                                     </div>
                                 </div>
-                            @endforeach --}}
+                            @endforeach
                         </div>
                         <div class="col-md-4 appear-animation" data-appear-animation="fadeInRightShorter" data-appear-animation-delay="600">
                             <h2 class="font-weight-bold text-4 mb-4">Special Offer</h2>
