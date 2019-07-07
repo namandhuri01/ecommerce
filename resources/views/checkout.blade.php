@@ -18,7 +18,7 @@
 						<p> {{ $item->qty }}</p>
 					</div>
 				</div>
-			@endforeach
+			@endforeach 
 		</div> --}}
 		
 @extends('includes.header')
@@ -253,13 +253,13 @@
 															<img src="img/products/product-1.jpg" class="img-fluid" width="67" alt="" />
 														</td>
 														<td class="product-name">
-															<a href="shop-product-detail-right-sidebar.html">{{ $item->model->name }}</a>
+															<a href="{{ route('shop.show', $item->model->slug) }}">{{ $item->model->name }}</a>
 														</td>
 														<td class="product-price">
 															<span class="unit-price">{{ $item->model->presentPrice() }}</span>
 														</td>
 														<td class="product-quantity">
-																{{ $item->qty }}
+															<span class="quantity">{{ $item->qty }}</span>
 														</td>
 														<td class="product-subtotal">
 															<span class="sub-total"><strong>{{ $item->model->presentPrice() }}</strong></span>

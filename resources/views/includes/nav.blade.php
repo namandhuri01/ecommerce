@@ -58,7 +58,7 @@
                     </div>
                 </div>
                 <div class="header-column justify-content-end">
-                    {{-- <div class="header-search-expanded">
+                    <div class="header-search-expanded">
                         <form method="GET">
                             <div class="input-group bg-light border">
                                     <input type="text" class="form-control text-4" name="s" placeholder="I'm looking for..." aria-label="I'm looking for...">
@@ -67,7 +67,7 @@
                                     </span>
                             </div>
                         </form>
-                    </div> --}}
+                    </div>
                     <div class="header-nav justify-content-start">
                         <a href="#" class="header-search-button order-1 text-5 d-none d-sm-block mt-1 mr-xl-2">
                             <i class="lnr lnr-magnifier"></i>
@@ -238,7 +238,7 @@
                                         </li>
                                     @if(!Auth::check())
                                         <li class="dropdown dropdown-mega dropdown-mega-signin signin ml-lg-3" id="headerAccount">
-                                            <a class="dropdown-item pl-lg-4" href="page-login.html">Sign In</a>
+                                            <a class="dropdown-item pl-lg-4" href="/login">Sign In</a>
                                             <ul class="dropdown-menu">
                                                 <li>
                                                     <div class="dropdown-mega-content">
@@ -421,17 +421,39 @@
                                                     <div class="col-6 text-right">
                                                         <strong class="total-value text-color-dark">{{ presentPrice(Cart::subtotal()) }}</strong>
                                                     </div>
+                                                </div>
+                                                <div class="row">
+                                                    @if(session()->has('coupon'))
+                                                        <div class="col-6">
+                                                            <strong class="text-color-dark">DISCOUNT:</strong>
+                                                        </div>
+                                                        <div class="col-6 text-right">
+                                                            <strong class="total-value text-color-dark">{{ presentPrice($discount)}}</strong>
+                                                        </div>
+                                                    @endif
+                                                </div>
+                                                <div class="row">
                                                     <div class="col-6">
-                                                        <strong class="text-color-dark">Tax</strong>
+                                                        <strong class="text-color-dark">NewSUBTOTAL:</strong>
                                                     </div>
                                                     <div class="col-6 text-right">
-                                                        <strong class="total-value text-color-dark">{{ presentPrice(Cart::tax()) }}</strong>
+                                                        <strong class="total-value text-color-dark">{{ presentPrice($newSubtotal)}}</strong>
                                                     </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-6">
+                                                        <strong class="text-color-dark">TAX:</strong>
+                                                    </div>
+                                                    <div class="col-6 text-right">
+                                                        <strong class="total-value text-color-dark">{{ presentPrice($newTax) }}</strong>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
                                                     <div class="col-6">
                                                         <strong class="text-color-dark">TOTAL:</strong>
                                                     </div>
                                                     <div class="col-6 text-right">
-                                                        <strong class="total-value text-color-dark">{{ presentPrice(Cart::total()) }}</strong>
+                                                        <strong class="total-value text-color-dark">{{ presentPrice($newTotal) }}</strong>
                                                     </div>
                                                 </div>
                                             </div>

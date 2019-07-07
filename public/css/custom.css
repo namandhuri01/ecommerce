@@ -25,3 +25,6 @@
 .btn-remove {
     background: transparent;
 }
+.mini-cart-total .row{
+    margin: 10px 0px;
+}
