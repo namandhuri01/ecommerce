@@ -7,3 +7,13 @@
         return 'Rs'.number_format($price);
     }
 
+    function productImage($path) 
+    {
+    
+        return $path && file_exists('storage/'.$path) ? asset('storage/'.$path) : asset('img/logos/logo-5.png');
+    }
+
+    function setActiveCategory($category, $output = 'active') 
+    {
+        return request()->category == $category ? $output : '';
+    }

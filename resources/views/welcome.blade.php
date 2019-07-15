@@ -223,7 +223,7 @@
                                     <div class="image-frame image-frame-style-1 image-frame-effect-2 mb-3">
                                         <div class="image-frame-wrapper image-frame-wrapper-overlay-bottom image-frame-wrapper-overlay-light image-frame-wrapper-align-end">
                                             <a href="{{ route('shop.show', $product->slug) }}">
-                                                <img src="img/products/product-1.jpg" class="img-fluid" alt="">
+                                                <img src="{{ productImage($product->image)}}" class="img-fluid" alt="">
                                             </a>
                                             <div class="image-frame-action">
                                                 <form action="{{ route('cart.store') }}" method="POST">
@@ -374,7 +374,7 @@
                                     <div class="image-frame image-frame-style-1 image-frame-effect-2 mb-3">
                                         <span class="image-frame-wrapper image-frame-wrapper-overlay-bottom image-frame-wrapper-overlay-light image-frame-wrapper-align-end">
                                             <a href="{{ route('shop.show', $product->slug) }}">
-                                                <img src="img/products/product-1.jpg" class="img-fluid" alt="">
+                                                <img src="{{ productImage($product->image)}}" class="img-fluid" alt="">
                                             </a>
                                             <div class="image-frame-action">
                                                 <form action="{{ route('cart.store') }}" method="POST">
@@ -473,7 +473,7 @@
                                     <div class="col-4">
                                         <div class="image-frame image-frame-style-1 image-frame-effect-2">
                                             <span class="image-frame-wrapper">
-                                                <img src="img/products/product-1.jpg" class="img-fluid" alt="">
+                                                <img src="{{ productImage($product->image)}}" class="img-fluid" alt="">
                                                 <span class="image-frame-action image-frame-action-style-2 image-frame-action-effect-1 image-frame-action-md">
                                                     <a href="{{ route('shop.show', $product->slug) }}">
                                                         <span class="image-frame-action-icon">
@@ -500,7 +500,7 @@
                                     <div class="col-4">
                                         <div class="image-frame image-frame-style-1 image-frame-effect-2">
                                             <span class="image-frame-wrapper">
-                                                <img src="img/products/product-1.jpg" class="img-fluid" alt="">
+                                                <img src="{{ productImage($product->image)}}" class="img-fluid" alt="">
                                                 <span class="image-frame-action image-frame-action-style-2 image-frame-action-effect-1 image-frame-action-md">
                                                     <a href="{{ route('shop.show', $product->slug) }}">
                                                         <span class="image-frame-action-icon">

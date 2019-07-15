@@ -3095,7 +3095,7 @@ html.shop #header .header-nav-main {
 	position: relative;
 }
 
-.mini-cart .mini-cart-content .mini-cart-product .product-image > a {
+.mini-cart .mini-cart-content .mini-cart-product .product-image button{
 	position: absolute;
 	top: -11px;
 	right: -12px;

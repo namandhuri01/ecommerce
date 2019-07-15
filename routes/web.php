@@ -33,7 +33,7 @@ Route::post('password/email', 'ForgotPasswordController@sendResetLinkEmail')->na
 Route::post('password/reset', 'ResetPasswordController@reset')->name('password.reset');
 
 // Shop Controller Route
-Route::get('/product', 'ShopController@index')->name('shop.index'); 
+Route::get('/products', 'ShopController@index')->name('shop.index'); 
 Route::get('/product/{product}', 'ShopController@show')->name('shop.show'); 
 
 // Cart Controller Route

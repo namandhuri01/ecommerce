@@ -351,7 +351,7 @@
                                                                 <div class="row align-items-center mb-4">
                                                                     <div class="col">
                                                                         <span class="top-sub-title text-color-light-3">SIGNED IN AS</span>
-                                                                    <h2 class="font-weight-bold text-4 mb-0">{{auth::user()->name }} {{auth::user()->roles}}</h2>
+                                                                    <h2 class="font-weight-bold text-4 mb-0">{{auth::user()->name }}</h2>
                                                                     </div>
                                                                     <div class="col text-right">
                                                                         <img src="img/logged-user.jpg" class="img-fluid rounded-circle" alt="" width="48" />	
@@ -406,7 +406,12 @@
                                                         </div>
                                                         <div class="col-5">
                                                             <div class="product-image">
-                                                                <a href="#" class="btn btn-light btn-rounded justify-content-center align-items-center"><i class="fas fa-times"></i></a>
+                                                                <form action="{{ route('cart.destroy', $item->rowId) }}" method="POST">
+                                                                    {{ csrf_field() }}
+                                                                    {{ method_field('DELETE') }}
+                                                                    <button type="submit" class="btn btn-light btn-rounded justify-content-center align-items-center"><i class="fas fa-times" aria-label="Remove"></i></button>
+                                                                </form>
+                                                                {{-- <a href="#" class="btn btn-light btn-rounded justify-content-center align-items-center"><i class="fas fa-times"></i></a> --}}
                                                                 <img src="{{ asset('img/products/product-2.jpg') }}" class="img-fluid rounded" alt="" />
                                                             </div>
                                                         </div>
@@ -422,7 +427,7 @@
                                                         <strong class="total-value text-color-dark">{{ presentPrice(Cart::subtotal()) }}</strong>
                                                     </div>
                                                 </div>
-                                                <div class="row">
+                                                {{-- <div class="row">
                                                     @if(session()->has('coupon'))
                                                         <div class="col-6">
                                                             <strong class="text-color-dark">DISCOUNT:</strong>
@@ -439,13 +444,13 @@
                                                     <div class="col-6 text-right">
                                                         <strong class="total-value text-color-dark">{{ presentPrice($newSubtotal)}}</strong>
                                                     </div>
-                                                </div>
+                                                </div> --}}
                                                 <div class="row">
                                                     <div class="col-6">
                                                         <strong class="text-color-dark">TAX:</strong>
                                                     </div>
                                                     <div class="col-6 text-right">
-                                                        <strong class="total-value text-color-dark">{{ presentPrice($newTax) }}</strong>
+                                                        <strong class="total-value text-color-dark">{{ presentPrice(Cart::tax()) }}</strong>
                                                     </div>
                                                 </div>
                                                 <div class="row">
@@ -453,7 +458,7 @@
                                                         <strong class="text-color-dark">TOTAL:</strong>
                                                     </div>
                                                     <div class="col-6 text-right">
-                                                        <strong class="total-value text-color-dark">{{ presentPrice($newTotal) }}</strong>
+                                                        <strong class="total-value text-color-dark">{{ presentPrice(Cart::total()) }}</strong>
                                                     </div>
                                                 </div>
                                             </div>
