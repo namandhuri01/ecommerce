@@ -10,7 +10,7 @@ TODO:
 9. add review migration 
 10. check stripe payment gateway 
 11. add new payment gateway who accept indian rupees
-12. check logout method why its not work
+12. check logout method why its not work -- Done
 13. add image filed in category migration
 
 

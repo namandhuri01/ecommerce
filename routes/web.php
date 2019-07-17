@@ -19,7 +19,7 @@ Route::get('/login',function(){
 });
 Route::post('/login','LoginController@store');
 // Route::get('/login','LoginController@create')->name('login');
-Route::get('/logout','LoginController@destroy');
+Route::get('/signout','LoginController@destroy');
 
 // RegisterController Routes
 

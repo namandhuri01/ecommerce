@@ -12,6 +12,11 @@
     
         return $path && file_exists('storage/'.$path) ? asset('storage/'.$path) : asset('img/logos/logo-5.png');
     }
+    function userImage($path)
+    {
+        return $path && file_exists('storage/'.$path) ? asset('storage/'.$path) : asset('img/authors/default.png');
+
+    }
 
     function setActiveCategory($category, $output = 'active') 
     {

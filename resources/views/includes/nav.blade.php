@@ -286,7 +286,8 @@
                                                                     <span class="top-sub-title text-color-light-3">MEMBERSHIP</span>
                                                                     <h2 class="font-weight-bold text-4 mb-4">Sign Up</h2>
 
-                                                                    <form action="https://preview.oklerthemes.com/" id="frmSignUp" method="post">
+                                                                    <form action="/register" id="frmSignUp" method="post">
+                                                                        {{ csrf_field() }}
                                                                         <div class="form-row">
                                                                             <div class="form-group col mb-2">
                                                                                 <input type="text" value="" class="form-control rounded-0 bg-light-5 border-0 py-2 px-3 text-1" name="name" id="signUpName" placeholder="Full Name" required>
@@ -295,6 +296,11 @@
                                                                         <div class="form-row">
                                                                             <div class="form-group col mb-2">
                                                                                 <input type="email" value="" maxlength="100" class="form-control rounded-0 bg-light-5 border-0 py-2 px-3 text-1" name="email" id="signUpEmail" placeholder="E-mail" required>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="form-row">
+                                                                            <div class="form-group col mb-2">
+                                                                                <input type="tel" value="" class="form-control rounded-0 bg-light-5 border-0 py-2 px-3 text-1" name="phone" id="signUpPhone" placeholder="Phone" required>
                                                                             </div>
                                                                         </div>
                                                                         <div class="form-row mb-3">
@@ -369,7 +375,7 @@
                                                                         <a href="#" class="nav-link">Settings</a>
                                                                     </li>
                                                                     <li class="nav-item">
-                                                                        <a href="/logout" class="nav-link">Sign Out</a>
+                                                                        <a href="/signout" class="nav-link">Sign Out</a>
                                                                     </li>
                                                                 </ul>
                                                             </div>
