@@ -247,22 +247,32 @@
                                                                 <div class="signin-form">
                                                                     <span class="top-sub-title text-color-light-3">MEMBERSHIP</span>
                                                                     <h2 class="font-weight-bold text-4 mb-4">Sign In</h2>
-                                                                    <form method="POST" action="/login" id="frmSignIn" >
+                                                                    <form method="POST" action="{{ route('login') }}" id="frmSignIn" >
                                                                             {{ csrf_field() }}
                                                                         <div class="form-row">
                                                                             <div class="form-group col mb-2">
-                                                                                <input type="email" value="" maxlength="100" class="form-control rounded-0 bg-light-5 border-0 py-2 px-3 text-1" name="email" id="signInEmail" placeholder="Email / Username" required>
+                                                                                <input type="email" value="" maxlength="100" class="rounded-0 bg-light-5 border-0 py-2 px-3 text-1 form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" id="signInEmail" placeholder="Email / Username" required>
+                                                                                @if ($errors->has('email'))
+                                                                                    <span class="invalid-feedback" role="alert">
+                                                                                        <strong>{{ $errors->first('email') }}</strong>
+                                                                                    </span>
+                                                                                @endif
                                                                             </div>
                                                                         </div>
                                                                         <div class="form-row">
                                                                             <div class="form-group col">
-                                                                                <input type="password" value="" class="form-control rounded-0 bg-light-5 border-0 py-2 px-3 text-1" name="password" id="signInPassword" placeholder="Password" required>
+                                                                                <input type="password" value="" class="rounded-0 bg-light-5 border-0 py-2 px-3 text-1 form-control{{ $errors->has('password') ? ' is-invalid' : '' }} " name="password" id="signInPassword" placeholder="Password" required>
+                                                                                @if ($errors->has('password'))
+                                                                                    <span class="invalid-feedback" role="alert">
+                                                                                        <strong>{{ $errors->first('password') }}</strong>
+                                                                                    </span>
+                                                                                @endif
                                                                             </div>
                                                                         </div>
                                                                         <div class="form-row">
                                                                             <div class="form-group col">
                                                                                 <div class="form-check checkbox-custom checkbox-default">
-                                                                                    <input class="form-check-input" type="checkbox" id="signInRemember">
+                                                                                    <input class="form-check-input" type="checkbox" id="signInRemember" name="remember" {{ old('remember') ? 'checked' : '' }}>
                                                                                     <label class="form-check-label" for="signInRemember">
                                                                                           Remember me
                                                                                     </label>
@@ -286,26 +296,46 @@
                                                                     <span class="top-sub-title text-color-light-3">MEMBERSHIP</span>
                                                                     <h2 class="font-weight-bold text-4 mb-4">Sign Up</h2>
 
-                                                                    <form action="/register" id="frmSignUp" method="post">
+                                                                    <form action="{{ route('register') }}" id="frmSignUp" method="post">
                                                                         {{ csrf_field() }}
                                                                         <div class="form-row">
                                                                             <div class="form-group col mb-2">
-                                                                                <input type="text" value="" class="form-control rounded-0 bg-light-5 border-0 py-2 px-3 text-1" name="name" id="signUpName" placeholder="Full Name" required>
+                                                                                <input type="text" value="" class="rounded-0 bg-light-5 border-0 py-2 px-3 text-1 form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="name" id="signUpName" placeholder="Full Name" required>
+                                                                                @if ($errors->has('name'))
+                                                                                    <span class="invalid-feedback" role="alert">
+                                                                                        <strong>{{ $errors->first('name') }}</strong>
+                                                                                    </span>
+                                                                                @endif
                                                                             </div>
                                                                         </div>
                                                                         <div class="form-row">
                                                                             <div class="form-group col mb-2">
-                                                                                <input type="email" value="" maxlength="100" class="form-control rounded-0 bg-light-5 border-0 py-2 px-3 text-1" name="email" id="signUpEmail" placeholder="E-mail" required>
+                                                                                <input type="email" value="" maxlength="100" class="rounded-0 bg-light-5 border-0 py-2 px-3 text-1 form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" id="signUpEmail" placeholder="E-mail" required>
+                                                                                @if ($errors->has('email'))
+                                                                                    <span class="invalid-feedback" role="alert">
+                                                                                        <strong>{{ $errors->first('email') }}</strong>
+                                                                                    </span>
+                                                                                @endif
                                                                             </div>
                                                                         </div>
                                                                         <div class="form-row">
                                                                             <div class="form-group col mb-2">
-                                                                                <input type="tel" value="" class="form-control rounded-0 bg-light-5 border-0 py-2 px-3 text-1" name="phone" id="signUpPhone" placeholder="Phone" required>
+                                                                                <input type="tel" value="" class="rounded-0 bg-light-5 border-0 py-2 px-3 text-1 form-control{{ $errors->has('phone') ? ' is-invalid' : '' }}" name="phone" id="signUpPhone" placeholder="Phone" required>
+                                                                                @if ($errors->has('phone'))
+                                                                                    <span class="invalid-feedback" role="alert">
+                                                                                        <strong>{{ $errors->first('phone') }}</strong>
+                                                                                    </span>
+                                                                                @endif
                                                                             </div>
                                                                         </div>
                                                                         <div class="form-row mb-3">
                                                                             <div class="form-group col">
-                                                                                <input type="password" value="" class="form-control rounded-0 bg-light-5 border-0 py-2 px-3 text-1" name="password" id="signUpPassword" placeholder="Password" required>
+                                                                                <input type="password" value="" class="rounded-0 bg-light-5 border-0 py-2 px-3 text-1 form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" id="signUpPassword" placeholder="Password" required>
+                                                                                @if ($errors->has('password'))
+                                                                                    <span class="invalid-feedback" role="alert">
+                                                                                        <strong>{{ $errors->first('password') }}</strong>
+                                                                                    </span>
+                                                                                @endif
                                                                             </div>
                                                                         </div>
                                                                         <div class="row align-items-center">
@@ -322,11 +352,21 @@
                                                                 <div class="recover-form">
                                                                     <span class="top-sub-title text-color-light-3">MEMBERSHIP</span>
                                                                     <h2 class="font-weight-bold text-4 mb-4">Reset my Password</h2>
-
-                                                                    <form action="https://preview.oklerthemes.com/" id="frmResetPassword" method="post">
+                                                                    @if (session('status'))
+                                                                        <div class="alert alert-success" role="alert">
+                                                                            {{ session('status') }}
+                                                                        </div>
+                                                                    @endif
+                                                                    <form method="POST" action="{{ route('password.email') }}" id="frmResetPassword">
+                                                                            @csrf
                                                                         <div class="form-row mb-4">
                                                                             <div class="form-group col mb-2">
-                                                                                <input type="email" value="" maxlength="100" class="form-control rounded-0 bg-light-5 border-0 py-2 px-3 text-1" name="email" id="resetPasswordEmail" placeholder="E-mail" required>
+                                                                                <input type="email" value="" maxlength="100" class="rounded-0 bg-light-5 border-0 py-2 px-3 text-1 form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" id="signUpEmail" placeholder="E-mail" required>
+                                                                                @if ($errors->has('email'))
+                                                                                    <span class="invalid-feedback" role="alert">
+                                                                                        <strong>{{ $errors->first('email') }}</strong>
+                                                                                    </span>
+                                                                                @endif
                                                                             </div>
                                                                         </div>
                                                                         <div class="row align-items-center">

@@ -12,6 +12,7 @@ TODO:
 11. add new payment gateway who accept indian rupees
 12. check logout method why its not work -- Done
 13. add image filed in category migration
-
+14. check login, register and password reset feature if work with auth properly then delete extra controller
+15. check login,register,password reset pages and menu
 
 
