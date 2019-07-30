@@ -22,7 +22,7 @@
                         <span class="top-sub-title text-color-light-2">MEMBERS</span>
                         <h2 class="text-color-light font-weight-bold text-4 mb-4"> Password Reset</h2>
     
-                        <form method="POST" action="{{ route('login') }}" id="shopLoginSignIn">
+                        <form method="POST" action="{{ route('password.email') }}" id="shopLoginSignIn">
                             {{ csrf_field() }}
                             <div class="form-group row">
                                         
