@@ -415,7 +415,12 @@
                                                                         <a href="#" class="nav-link">Settings</a>
                                                                     </li>
                                                                     <li class="nav-item">
-                                                                        <a href="/signout" class="nav-link">Sign Out</a>
+                                                                        <a href="{{ route('logout') }}" class="nav-link" onclick="event.preventDefault();
+                                                                            document.getElementById('logout-form').submit();">Sign Out</a>
+                                                                        </a>
+                                                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                                                            @csrf
+                                                                        </form>
                                                                     </li>
                                                                 </ul>
                                                             </div>

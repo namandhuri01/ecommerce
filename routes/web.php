@@ -13,25 +13,6 @@
 
 Route::get('/', 'MainPageController@index')->name('home');
 
-//Login Controller Routes
-Route::get('/login',function(){
-    return view('login');
-});
-Route::post('/login','LoginController@store');
-// Route::get('/login','LoginController@create')->name('login');
-Route::get('/signout','LoginController@destroy');
-
-// RegisterController Routes
-
-Route::get('/register','RegistrationController@create');
-Route::post('/register','RegistrationController@store');
-
-// Forgot Paswword Controller Routes
-Route::get('password/reset', 'ForgotPasswordController@showLinkRequestForm')->name('password.reset.link');
-Route::get('password/reset/{token}', 'ResetPasswordController@showResetForm')->name('password.reset.form');
-Route::post('password/email', 'ForgotPasswordController@sendResetLinkEmail')->name('password.email');
-Route::post('password/reset', 'ResetPasswordController@reset')->name('password.reset');
-
 // Shop Controller Route
 Route::get('/products', 'ShopController@index')->name('shop.index'); 
 Route::get('/product/{product}', 'ShopController@show')->name('shop.show'); 
@@ -76,3 +57,24 @@ Route::group(['prefix' => 'admin'], function () {
 Auth::routes();
 
 // Route::get('/home', 'HomeController@index')->name('home');
+
+/*
+//Login Controller Routes
+Route::get('/login',function(){
+    return view('login');
+});
+Route::post('/login','LoginController@store');
+// Route::get('/login','LoginController@create')->name('login');
+Route::get('/signout','LoginController@destroy');
+
+// RegisterController Routes
+
+Route::get('/register','RegistrationController@create');
+Route::post('/register','RegistrationController@store');
+
+// Forgot Paswword Controller Routes
+Route::get('password/reset', 'ForgotPasswordController@showLinkRequestForm')->name('password.reset.link');
+Route::get('password/reset/{token}', 'ResetPasswordController@showResetForm')->name('password.reset.form');
+Route::post('password/email', 'ForgotPasswordController@sendResetLinkEmail')->name('password.email');
+Route::post('password/reset', 'ResetPasswordController@reset')->name('password.reset');
+*/

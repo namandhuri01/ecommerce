@@ -44,7 +44,7 @@
 		<link rel="stylesheet" href="{{ asset('vendor/rs-plugin/css/navigation.css') }}">
 
 		<!-- Skin CSS -->
-		<link rel="stylesheet" href="{{ asset('css/skins/default.css') }}">		
+		{{-- <link rel="stylesheet" href="{{ asset('css/skins/default.css') }}">		 --}}
 		<script src="{{ asset('master/style-switcher/style.switcher.localstorage.js') }}"></script> 
 
 		<!-- Theme Custom CSS -->
