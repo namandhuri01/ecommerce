@@ -45,7 +45,7 @@
 						<i class="fas fa-star text-color-default"></i>									
 					</div>
 					<span class="price font-primary text-4"><strong class="text-color-dark">{{ $product->presentPrice() }}</strong></span>
-					<span class="old-price font-primary text-line-trough text-2"><strong class="text-color-default">{{ $product->presentPrice() }}</strong></span>
+				<span class="old-price font-primary text-line-trough text-2"><strong class="text-color-default">{{ $product->mrpPrice() }}</strong></span>
 					<p class="mt-4">{!! $product->details !!}</p>
 					<hr class="my-4">
 					<ul class="list list-unstyled">

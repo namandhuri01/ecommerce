@@ -16,5 +16,10 @@ class Product extends Model
         return 'Rs'.number_format($this->price);
     }
 
+    public function mrpPrice() {
+
+        return 'Rs'.number_format($this->MRP);
+    }
+
    
 }
