@@ -1,6 +1,6 @@
 TODO: 
 1. Add minium 2 images for each product dimension 1170*1170 or 800*800
-2. check why discount with percentage coupon not work
+2. check why discount with percentage coupon not work --Done
 3. change some design bcz copywrite issue
 4. change migration table where add feature and sku add mrp filed in there -- Done
 5. add validation and check in voyager -- Done for product
@@ -17,3 +17,4 @@ TODO:
 16. need table seed with reverse seed.
 17. check if we add try catch method in controller or not.
 18. change shop controller name to product controller.
+19. check checkout controller form not working Due to stripe

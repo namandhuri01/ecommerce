@@ -11,6 +11,11 @@ use Cartalyst\Stripe\Exception\CardErrorException;
 
 class CheckoutController extends Controller
 {
+
+    // public function __construct()
+    // {
+    //     $this->middleware('auth', ['except' => ['index', 'getAmountAfterDiscount','store']]);
+    // }
     /**
      * Display a listing of the resource.
      *
@@ -33,7 +38,7 @@ class CheckoutController extends Controller
 
     public function store(CheckoutRequest $request)
     {
-
+        // dd("naman");
     $contents = Cart::content()->map(function($item){
         
         return $item->model->slug.','.$item->qty;

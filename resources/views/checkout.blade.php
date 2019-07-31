@@ -146,51 +146,55 @@
 									<p class="mb-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus blandit massa enim. Nullam id varius nunc.</p>
 									<div class="form-row">
 										<div class="form-group col-md-6">
-											<label class="text-color-dark font-weight-semibold" for="billing_fname">FIRST NAME:</label>
-											<input type="text" value="{{ old('billing_fname') }}" class="form-control line-height-1 bg-light-5" name="billing_fname" id="billing_fname" required>
+											<label class="text-color-dark font-weight-semibold" for="fname">FIRST NAME:</label>
+											<input type="text" value="{{ old('fname') }}" class="form-control line-height-1 bg-light-5" name="fname" id="fname" required>
 										</div>
 										<div class="form-group col-md-6">
-											<label class="text-color-dark font-weight-semibold" for="billing_lname">LAST NAME:</label>
-											<input type="text" value="{{ old('billing_lname') }}" class="form-control line-height-1 bg-light-5" name="billing_lname" id="billing_lname" required>
+											<label class="text-color-dark font-weight-semibold" for="lname">LAST NAME:</label>
+											<input type="text" value="{{ old('lname') }}" class="form-control line-height-1 bg-light-5" name="lname" id="lname" required>
 										</div>
 									</div>
 									<div class="form-row">
 										<div class="form-group col">
-											<label class="text-color-dark font-weight-semibold" for="billing_email">EMAIL ADDRESS:</label>
-										<input type="email" value="{{ old('billing_email') }}" class="form-control line-height-1 bg-light-5" name="billing_email" id="billing_email" required>
+											<label class="text-color-dark font-weight-semibold" for="email">EMAIL ADDRESS:</label>
+											@if(auth()->user())
+												<input type="email" value="{{ auth()->user()->email }}" class="form-control line-height-1 bg-light-5" name="email" id="email" readonly>
+											@else
+												<input type="email" value="{{ old('email') }}" class="form-control line-height-1 bg-light-5" name="email" id="email" required>
+											@endif	
 										</div>
 									</div>
 									<div class="form-row">
 										<div class="form-group col">
-											<label class="text-color-dark font-weight-semibold" for="billing_phone">PHONE NUMBER</label>
-											<input type="tel" value="{{ old('billing_phone') }}" class="form-control line-height-1 bg-light-5" name="billing_phone" id="billing_phone" required>
+											<label class="text-color-dark font-weight-semibold" for="phone">PHONE NUMBER</label>
+											<input type="tel" value="{{ old('phone') }}" class="form-control line-height-1 bg-light-5" name="phone" id="phone" required>
 										</div>
 									</div>
 									<div class="form-row">
 										<div class="form-group col">
-											<label class="text-color-dark font-weight-semibold" for="billing_address">ADDRESS:</label>
-											<input type="text" value="{{ old('billing_address') }}" class="form-control line-height-1 bg-light-5" name="billing_address" id="billing_address" required>
+											<label class="text-color-dark font-weight-semibold" for="address">ADDRESS:</label>
+											<input type="text" value="{{ old('address') }}" class="form-control line-height-1 bg-light-5" name="address" id="address" required>
 										</div>
 									</div>
 									<div class="form-row">
 										<div class="form-group col">
-											<input type="text" value="{{ old('billing_address2') }}" class="form-control line-height-1 bg-light-5" name="billing_address2" id="billing_address2" required>
+											<input type="text" value="{{ old('address2') }}" class="form-control line-height-1 bg-light-5" name="address2" id="address2" required>
 										</div>
 									</div>
 									<div class="form-row">
 										<div class="form-group col">
-											<label class="text-color-dark font-weight-semibold" for="billing_city">CITY / TOWN:</label>
-											<input type="text" value="{{ old('billing_city') }}" class="form-control line-height-1 bg-light-5" name="billing_city" id="billing_city" required>
+											<label class="text-color-dark font-weight-semibold" for="city">CITY / TOWN:</label>
+											<input type="text" value="{{ old('city') }}" class="form-control line-height-1 bg-light-5" name="city" id="city" required>
 										</div>
 									</div>
 									<div class="form-row">
 										<div class="form-group col-md-6">
-											<label class="text-color-dark font-weight-semibold" for="billing_state">State</label>
-											<input type="text" value="{{ old('billing_state') }}" class="form-control line-height-1 bg-light-5" name="billing_state" id="billing_state" required>
+											<label class="text-color-dark font-weight-semibold" for="state">State</label>
+											<input type="text" value="{{ old('state') }}" class="form-control line-height-1 bg-light-5" name="state" id="state" required>
 										</div>
 										<div class="form-group col-md-6">
-											<label class="text-color-dark font-weight-semibold" for="billing_zip">Pin Code</label>
-											<input type="tel" value="{{ old('billing_zip') }}" class="form-control line-height-1 bg-light-5" name="billing_zip" id="billing_zip" required>
+											<label class="text-color-dark font-weight-semibold" for="zip">Pin Code</label>
+											<input type="tel" value="{{ old('zip') }}" class="form-control line-height-1 bg-light-5" name="zip" id="zip" required>
 										</div>
 									</div>
 									<h3 class="font-weight-bold text-4 mb-3">Payment</h3>
@@ -391,11 +395,11 @@
 			var options = {
 
 				name:document.getElementById('name_on_card').value,
-				address_line1:document.getElementById('billing_address').value,
-				address_line2:document.getElementById('billing_address2').value,
-				// address_zip:document.getElementById('billing_zip').value,
-				address_city:document.getElementById('billing_city').value,
-				address_state:document.getElementById('billing_state').value,
+				address_line1:document.getElementById('address').value,
+				address_line2:document.getElementById('address2').value,
+				address_zip:document.getElementById('zip').value,
+				address_city:document.getElementById('city').value,
+				address_state:document.getElementById('state').value,
 				
 
 			}
