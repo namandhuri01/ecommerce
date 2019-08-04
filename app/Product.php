@@ -21,5 +21,8 @@ class Product extends Model
         return 'Rs'.number_format($this->MRP);
     }
 
+    public function scopeMightAlsoLike($query) {
+        return $query->inRandomOrder()->take(5);
+    }
    
 }

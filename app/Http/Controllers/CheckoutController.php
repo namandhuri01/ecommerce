@@ -12,10 +12,10 @@ use Cartalyst\Stripe\Exception\CardErrorException;
 class CheckoutController extends Controller
 {
 
-    // public function __construct()
-    // {
-    //     $this->middleware('auth', ['except' => ['index', 'getAmountAfterDiscount','store']]);
-    // }
+    public function __construct()
+    {
+        $this->middleware('auth', ['except' => ['index', 'getAmountAfterDiscount','store']]);
+    }
     /**
      * Display a listing of the resource.
      *
