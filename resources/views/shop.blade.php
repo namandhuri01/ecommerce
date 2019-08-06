@@ -164,7 +164,7 @@
                                     <div class="image-frame image-frame-style-1 image-frame-effect-2 mb-3">
                                         <span class="image-frame-wrapper image-frame-wrapper-overlay-bottom image-frame-wrapper-overlay-light image-frame-wrapper-align-end">
                                             <a href="{{ route('shop.show', $product->slug) }}">
-                                                <img src="{{ asset('img/products/' .$product->slug.'.jpg')}}" class="img-fluid" alt="">
+                                                <img src="{{ productImage($product->image)}}" class="img-fluid" alt="">
                                             </a>
                                             <span class="image-frame-action">
                                                 <form action="{{ route('cart.store') }}" method="POST">
@@ -181,7 +181,7 @@
                                         <div class="product-info-title">
                                             <h3 class="text-color-default text-2 line-height-1 mb-1"><a href="{{ route('shop.show', $product->slug) }}">{{$product->name}}</a></h3>
                                             <span class="price font-primary text-4"><strong class="text-color-dark">{{ $product->presentPrice() }}</strong></span>
-                                            <span class="old-price font-primary text-line-trough text-1"><strong class="text-color-default">{{ $product->presentPrice() }}</strong></span>
+                                            <span class="old-price font-primary text-line-trough text-1"><strong class="text-color-default">{{ $product->mrpPrice() }}</strong></span>
                                         </div>
                                     </div>
                                 </div>

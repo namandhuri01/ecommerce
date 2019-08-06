@@ -238,7 +238,7 @@
                                     </div>
                                     <h3 class="text-color-default text-2 mb-0"><a href="{{ route('shop.show', $product->slug) }}">{{$product->name}}</a></h3>
                                     <span class="price font-primary text-4"><strong class="text-color-dark">{{$product->presentPrice()}}</strong></span>
-                                    <span class="old-price font-primary text-line-trough text-2"><strong class="text-color-default">{{$product->presentPrice()}}</strong></span>
+                                    <span class="old-price font-primary text-line-trough text-2"><strong class="text-color-default">{{$product->mrpPrice()}}</strong></span>
                                 </div>
                             @endforeach
                         </div>
@@ -389,7 +389,15 @@
                                     </div>
                                     <h3 class="text-color-default text-2 mb-0"><a href="{{ route('shop.show', $product->slug) }}">{{ $product->name }}</a></h3>
                                     <span class="price font-primary text-4"><strong class="text-color-dark">{{ $product->presentPrice() }}</strong></span>
-                                    <span class="old-price font-primary text-line-trough text-2"><strong class="text-color-default">{{ $product->presentPrice() }}</strong></span>
+                                    <span class="old-price font-primary text-line-trough text-2"><strong class="text-color-default">
+                                        
+                                        @if($product->mrpPrice() == 0)
+                                            {{$product->presentPrice()}}
+                                        @else
+                                            {{$product->mrpPrice()}}
+                                        
+                                        @endif
+                                    </strong></span>
                                 </div>
                             </div>
                         @endforeach
@@ -487,7 +495,7 @@
                                     <div class="col-8">
                                         <h3 class="text-color-default text-2 mb-0"><a href="{{ route('shop.show', $product->slug) }}">{{ $product->name }}</a></h3>
                                         <span class="price font-primary text-4"><strong class="text-color-dark">{{ $product->presentPrice() }}</strong></span>
-                                        <span class="old-price font-primary text-line-trough text-2"><strong class="text-color-default">{{ $product->presentPrice() }}</strong></span>
+                                        <span class="old-price font-primary text-line-trough text-2"><strong class="text-color-default">{{ $product->mrpPrice() }}</strong></span>
                                     </div>
                                 </div>
                             @endforeach
