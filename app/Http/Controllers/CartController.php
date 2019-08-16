@@ -33,10 +33,10 @@ class CartController extends Controller
     {
         
        return view('cart')->with([
-        'discount'      => $this->getAmountAfterDiscount()->get('discount'),
-        'newSubtotal'   => $this->getAmountAfterDiscount()->get('newSubtotal'),
-        'newTax'        => $this->getAmountAfterDiscount()->get('newTax'),
-        'newTotal'      => $this->getAmountAfterDiscount()->get('newTotal'),
+        'discount'      => getAmountAfterDiscount()->get('discount'),
+        'newSubtotal'   => getAmountAfterDiscount()->get('newSubtotal'),
+        'newTax'        => getAmountAfterDiscount()->get('newTax'),
+        'newTotal'      => getAmountAfterDiscount()->get('newTotal'),
        ]);
     }
 
@@ -165,19 +165,4 @@ class CartController extends Controller
         return redirect()->route('cart.index')->with('success_message', 'Item has been Saved For Later!');
     }
 
-    private function getAmountAfterDiscount()
-    {
-        $tax = config('cart.tax') /100;
-        $discount = session()->get('coupon')['discount'] ?? 0;
-        $newSubtotal = (Cart::subtotal() - $discount);
-        $newTax = $newSubtotal * $tax;
-        $newTotal = $newSubtotal * (1 + $tax);
-        
-        return collect([
-            'discount'  => $discount,
-            'newSubtotal'   => $newSubtotal,
-            'newTax'        => $newTax,
-            'newTotal'      => $newTotal,
-        ]);
-    }
 }
