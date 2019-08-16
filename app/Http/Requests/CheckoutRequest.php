@@ -26,10 +26,10 @@ class CheckoutRequest extends FormRequest
         $emailValidation = auth()->user() ? 'required|email' : 'required|email|unique:users';
 
         return [
-            'email' =>'bail|required|email|unique:users',
+            'email' => $emailValidation,
             'fname' => 'bail|required',
             'lname' => 'bail|required',
-            'address' => 'bail|required',
+            'address_line1' => 'bail|required',
             'city' => 'bail|required',
             'state' => 'bail|required',
             'zip' => 'bail|required',
