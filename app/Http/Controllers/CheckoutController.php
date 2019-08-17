@@ -2,14 +2,16 @@
 
 namespace App\Http\Controllers;
 
+use Log;
+use Mail;
 use App\Order;
 use App\OrderProduct;
+use App\Mail\OrderPlaced;
 use Illuminate\Http\Request;
 use App\Http\Requests\CheckoutRequest;
 use Gloudemans\Shoppingcart\Facades\Cart;
 use Cartalyst\Stripe\Laravel\Facades\Stripe;
 use Cartalyst\Stripe\Exception\CardErrorException;
-use Log;
 
 
 class CheckoutController extends Controller
@@ -45,34 +47,9 @@ class CheckoutController extends Controller
        
        try{
 
-            // $charge = Stripe::charges()->create([
-
-            //     'amount'        => $this->getAmountAfterDiscount()->get('newTotal'),
-            //     'currency'      => 'usd',
-            //     'source'        => $request->stripeToken,
-            //     'description'   => 'Order',
-            //     'recipt_email'  => $request->email,
-            //     'metadata'      => [
-
-            //         //change order id after we start DB
-            //         'contents'  => $contents,
-            //         'quantity'  => Cart::instance('default')->count(),
-            //         'discount'  => collect(session()->get('coupon'))->tojson(),
-            //     ],
-
-            // ]);
-
-            // Insert into orders table
-            // $userId = auth()->user() ? auth()->user()->id : null;
-           
-            // if($userId != null) {
-
-            //     settype($userId, "integer");
-            // }
-            
            $order =  $this->addToOrdersTables($request, null);
-            // insert into order_products table
-
+            
+           Mail::send(new OrderPlaced($order));
             //Successfull
             Cart::instance('default')->destroy();
             session()->forget('coupon');

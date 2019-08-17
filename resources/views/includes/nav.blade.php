@@ -50,10 +50,11 @@
             <div class="header-row">
                 <div class="header-column justify-content-start">
                     <div class="header-logo">
-                        <p><a href="/">
-                            <img src="{{ asset('img/icons/cart-bag.svg') }}" class="img-fluid" alt="" />
-                           <span class="logo-text"> e-commerce Bucket</span>
-                        </a>
+                        <p>
+                            <a href="/">
+                                <img src="{{ asset('img/icons/cart-bag.svg') }}" class="img-fluid" alt="" />
+                                <span class="logo-text"> e-commerce Bucket</span>
+                            </a>
                         </p>
                     </div>
                 </div>
