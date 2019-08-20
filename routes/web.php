@@ -15,7 +15,7 @@ Route::get('/', 'MainPageController@index')->name('home');
 
 // Shop Controller Route
 Route::get('/products', 'ShopController@index')->name('shop.index'); 
-Route::get('/product/{product}', 'ShopController@show')->name('shop.show'); 
+Route::get('/product/{product}/', 'ShopController@show')->name('shop.show'); 
 
 // Cart Controller Route
 

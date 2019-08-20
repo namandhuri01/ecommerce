@@ -89,11 +89,12 @@ class CheckoutController extends Controller
         ]);
             //insert into order_products table
         foreach (Cart::content() as $item) {
-            
+            // dd($item);
             OrderProduct::create([
                 'order_id' => $order->id,
                 'product_id' => $item->model->id,
                 'quantity' => $item->qty,
+                'saleprice' => $item->price,
             ]);
         }
         return $order;

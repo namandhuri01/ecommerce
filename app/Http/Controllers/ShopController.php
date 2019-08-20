@@ -52,17 +52,6 @@ class ShopController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
      * Display the specified resource.
      *
      * @param  int  $id
@@ -78,41 +67,21 @@ class ShopController extends Controller
             'product'=> $product,
             'mightAlsoLike' => $mightAlsoLike
             
-            ]);
+        ]);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
+    public function search(Request $request) {
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
+        $request->validate([
+            'query' => 'bail|required|min:3',
+        ]);
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
+        $query = $request->input('query');
+
+
+        $products = Product::where('name','Like', '%$query%');
+
+        return view('search')->with('products', $products);
     }
-    
+   
 }
