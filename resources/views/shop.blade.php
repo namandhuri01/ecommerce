@@ -151,7 +151,7 @@
                         </div>
                         <div class="col-auto ">
                             <div class="d-flex align-items-center">
-                                <span>Showing 1-9 of 60 results</span>
+                            <span>Showing {{ $products->count() }} of {{ $products->total() }} results </span>
                                 <a href="#" class="text-color-dark text-3 ml-2" data-toggle="tooltip" data-placement="top" title="Grid"><i class="fas fa-th"></i></a>
                                 <a href="#" class="text-color-dark text-3 ml-2" data-toggle="tooltip" data-placement="top" title="List"><i class="fas fa-list-ul"></i></a>
                             </div>
