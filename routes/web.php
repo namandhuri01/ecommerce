@@ -42,7 +42,8 @@ Route::post('/checkout', 'CheckoutController@store')->name('checkout.store');
 
 //Product Category wise
 
-Route::get('/category/{name}','ProductCategoryWiseController@index')->name('category.index');
+Route::get('/category','ProductCategoryWiseController@index')->name('category.index');
+Route::get('/category/{id}','ProductCategoryWiseController@show')->name('category.show');
 
 Route::get('empty', function(){
 

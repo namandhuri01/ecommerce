@@ -130,7 +130,7 @@
                 </aside>
                 <div class="col-md-8 col-lg-9 order-1 order-md-2 mb-5 mb-md-0">
                     <div class="row align-items-center justify-content-between mb-4">
-                        <div class="col-auto mb-3 mb-sm-0">
+                        <div class="col-auto  col-md-4 mb-3 mb-sm-0">
                             {{-- <form method="get" action="{{ route('shop.index',['category' =>request()->category, 'sort' => 'low_high']) }}">
                                 <div class="custom-select-1">
                                     <select class="form-control border">
@@ -146,14 +146,14 @@
                                 </div>
                             </form> --}}
                         </div>
-                        <div class="col-auto ">
+                        <div class="col-auto col-md-4 ">
                             <h2>{{$categoryName}}</h2>
                         </div>
-                        <div class="col-auto ">
+                        <div class="col-auto col-md-4">
                             <div class="d-flex align-items-center">
                             <span>Showing {{ $products->count() }} of {{ $products->total() }} results </span>
                                 <a href="#" class="text-color-dark text-3 ml-2" data-toggle="tooltip" data-placement="top" title="Grid"><i class="fas fa-th"></i></a>
-                                <a href="#" class="text-color-dark text-3 ml-2" data-toggle="tooltip" data-placement="top" title="List"><i class="fas fa-list-ul"></i></a>
+                                {{-- <a href="#" class="text-color-dark text-3 ml-2" data-toggle="tooltip" data-placement="top" title="List"><i class="fas fa-list-ul"></i></a> --}}
                             </div>
                         </div>
                     </div>
@@ -193,7 +193,7 @@
                     <hr class="mt-5 mb-4">
                     <div class="row align-items-center justify-content-between">
                         <div class="col-auto mb-3 mb-sm-0">
-                            <span>Showing 1-6 of 60 results</span>
+                            <span>Showing {{ $products->count() }} of {{ $products->total() }} results</span>
                         </div>
                         <div class="col-auto">
                             <nav aria-label="Page navigation example">

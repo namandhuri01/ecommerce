@@ -8,7 +8,7 @@ TODO:
 7. change colour combination 
 8. add product review and site review migration 
 9. check stripe payment gateway -- Not need its not work for indian rupees
-10. add new payment gateway who accept indian rupees and cash on delivery 
+10. add new payment gateway who accept indian rupees and cash on delivery  --i have try Rogerpay but don't like 
 11. check logout method why its not work --Done
 12. add image filed in category migration --Done
 13. check login, register and password reset feature if work with auth properly then delete extra controller --Done 
@@ -21,5 +21,7 @@ TODO:
 20. change product category and replace product
 21. show product category in home page and count of product
 22. add order number field in order table.
-23. add order status field ("delivered", cancled)
+23. add order status field ("delivered", cancled, pending)
 24. Create Order email template using bootstrap.
+25. show product category wise --Done
+
