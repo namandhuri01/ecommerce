@@ -131,20 +131,7 @@
                 <div class="col-md-8 col-lg-9 order-1 order-md-2 mb-5 mb-md-0">
                     <div class="row align-items-center justify-content-between mb-4">
                         <div class="col-auto  col-md-4 mb-3 mb-sm-0">
-                            {{-- <form method="get" action="{{ route('shop.index',['category' =>request()->category, 'sort' => 'low_high']) }}">
-                                <div class="custom-select-1">
-                                    <select class="form-control border">
-                                        <option value="popularity">Sort by popularity</option>
-                                        <option value="rating">Sort by average rating</option>
-                                        <option value="date" selected="selected">Sort by newness</option>
-                                        <option value="price"><a href="">Sort by price: low to high</a></option>
-                                        <option value="price-desc">Sort by price: high to low</option>
-                                    </select>
-                                    <b>Price</b>
-                                    <a href="{{ route('shop.index',['category' =>request()->category, 'sort' => 'low_high']) }}">low to high</a>
-                                    <a href="{{ route('shop.index',['category' =>request()->category, 'sort' => 'high_low']) }}">high to low</a>
-                                </div>
-                            </form> --}}
+                            {{-- empty --}}
                         </div>
                         <div class="col-auto col-md-4 ">
                             <h2>{{$categoryName}}</h2>
@@ -177,8 +164,8 @@
                                             </span>
                                         </span>
                                     </div>
-                                    <div class="product-info d-flex flex-column flex-lg-row justify-content-between">
-                                        <div class="product-info-title">
+                                    <div class="product-info d-flex flex-column justify-content-between">
+                                        <div class="product-info-title text-center">
                                             <h3 class="text-color-default text-2 line-height-1 mb-1"><a href="{{ route('shop.show', $product->slug) }}">{{$product->name}}</a></h3>
                                             <span class="price font-primary text-4"><strong class="text-color-dark">{{ $product->presentPrice() }}</strong></span>
                                             <span class="old-price font-primary text-line-trough text-1"><strong class="text-color-default">{{ $product->mrpPrice() }}</strong></span>

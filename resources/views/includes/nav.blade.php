@@ -60,12 +60,12 @@
                 </div>
                 <div class="header-column justify-content-end">
                     <div class="header-search-expanded">
-                        <form method="GET">
+                        <form method="GET" action="{{route('search')}}">
                             <div class="input-group bg-light border">
-                                    <input type="text" class="form-control text-4" name="s" placeholder="I'm looking for..." aria-label="I'm looking for...">
-                                    <span class="input-group-btn">
-                                    <button class="btn" type="submit"><i class="lnr lnr-magnifier text-color-dark"></i></button>
-                                    </span>
+                                <input type="text" class="form-control text-4" name="query" id="query" placeholder="I'm looking for..." aria-label="I'm looking for...">
+                                <span class="input-group-btn">
+                                <button class="btn" type="submit"><i class="lnr lnr-magnifier text-color-dark"></i></button>
+                                </span>
                             </div>
                         </form>
                     </div>
@@ -436,7 +436,7 @@
                         </div> 
                         <div class="mini-cart order-4">
                             <span class="font-weight-bold font-primary">Cart </span>
-                            <div class="mini-cart-icon">
+                            <div class="mini-cart-icon ">
                                 <img src="{{ asset('img/icons/cart-bag.svg') }}" class="img-fluid" alt="" />
                                 @if (Cart::instance('default')->count() > 0)
                                     <span class="badge badge-primary rounded-circle">{{ Cart::instance('default')->count()}}</span>

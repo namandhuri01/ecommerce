@@ -354,7 +354,7 @@
             </div>
         </section>
         {{-- Background color category section --}}
-        {{-- Product grid section --}}
+        {{-- Product grid section new Arrivals --}}
         <section class="section">
                 <div class="container">
                     <div class="row text-center mb-4">

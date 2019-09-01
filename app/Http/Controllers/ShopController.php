@@ -72,16 +72,31 @@ class ShopController extends Controller
 
     public function search(Request $request) {
 
-        $request->validate([
-            'query' => 'bail|required|min:3',
-        ]);
-
         $query = $request->input('query');
+        $products = Product::where('name','Like', "%$query%")
+                        ->orWhere('details', 'Like',"%$query%")
+                        ->orWhere('description', 'Like',"%$query%")
+                        ->paginate(12);
 
+        return view('search')->with([
+            'products' => $products,
+            'query' => $query
+        ]);
+    }
 
-        $products = Product::where('name','Like', '%$query%');
+    public function priceSort(Request $request) {
 
-        return view('search')->with('products', $products);
+        if(request()->sort == 'low_high')
+        {
+            $products = $products->orderBy('price')->paginate($pagination);
+        }
+        elseif(request()->sort == 'high_low')
+        {
+            $products = $products->orderBy('price', 'desc')->paginate($pagination);
+        }
+        else{
+            $products = $products->paginate($pagination);
+        }
     }
    
 }

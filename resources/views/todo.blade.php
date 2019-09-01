@@ -24,4 +24,5 @@ TODO:
 23. add order status field ("delivered", cancled, pending)
 24. Create Order email template using bootstrap.
 25. show product category wise --Done
+26. Add Brands in products
 

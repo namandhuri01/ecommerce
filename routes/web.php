@@ -62,3 +62,9 @@ Auth::routes();
 Route::get('/placed', function(){
     return view('email.orders.placed');
 });
+
+// Search route
+Route::get('/search', 'ShopController@search')->name('search');
+Route::get('/query', function(){
+    return view('jquery');
+});
