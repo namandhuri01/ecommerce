@@ -5,7 +5,7 @@ TODO:
 4. change migration table where add feature and sku add mrp filed in there --Done
 5. add validation and check in voyager --Done for product
 6. check java script and css which we don't need delete or disable
-7. change colour combination 
+7. change colour combination -- black-:16b21, orange-: F4a950, red-: ec4d37
 8. add product review and site review migration 
 9. check stripe payment gateway -- Not need its not work for indian rupees
 10. add new payment gateway who accept indian rupees and cash on delivery  --i have try Rogerpay but don't like 
