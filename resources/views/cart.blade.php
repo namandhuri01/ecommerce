@@ -115,8 +115,8 @@
 															</div>
 														</div>
 														<div class="col-md-7 text-right px-0">
-															<button class="btn btn-dark btn-outline btn-rounded font-weight-bold btn-h-2 btn-v-3">UPDATE CART</button>
-															<a href="/checkout" class="btn btn-primary btn-rounded font-weight-bold btn-h-2 btn-v-3">PROCEED TO CHECKOUT</a>
+															<button class="btn btn-dark btn-outline   font-weight-bold btn-h-2 btn-v-3">UPDATE CART</button>
+															<a href="/checkout" class="btn btn-primary   font-weight-bold btn-h-2 btn-v-3">PROCEED TO CHECKOUT</a>
 														</div>
 													</div>
 												</td>
@@ -190,7 +190,7 @@
 					</div>
 				@else
 					<h3>No Item in cart</h3>
-					<a href="{{ route('shop.index') }}" class="btn btn-primary btn-rounded font-weight-semibold btn-v-3 btn-fs-2">Continue Shopping</a>
+					<a href="{{ route('shop.index') }}" class="btn btn-primary   font-weight-semibold btn-v-3 btn-fs-2">Continue Shopping</a>
 				@endif
 			</div>
 		</section>

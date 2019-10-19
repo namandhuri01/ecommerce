@@ -77,7 +77,7 @@
 											</div>
 											<div class="row align-items-center">
 												<div class="col text-right">
-													<button class="btn btn-primary btn-rounded btn-v-3 btn-h-3 text-color-light font-weight-bold">SIGN IN</button>
+													<button class="btn btn-primary   btn-v-3 btn-h-3 text-color-light font-weight-bold">SIGN IN</button>
 												</div>
 											</div>
 										</form>
@@ -187,7 +187,7 @@
 										</div>
 									</div>
 									<div class="col text-right">
-										<button id="place-order"class="btn btn-primary btn-rounded font-weight-bold btn-h-2 btn-v-3" type="submit">PLACE ORDER</button>
+										<button id="place-order"class="btn btn-primary   font-weight-bold btn-h-2 btn-v-3" type="submit">PLACE ORDER</button>
 									</div>
 								</form>
 							</div>

@@ -69,7 +69,7 @@
                                 </div>
                                 <div class="row align-items-center">
                                     <div class="col text-right">
-                                        <button type="submit" class="btn btn-dark btn-rounded btn-v-3 btn-h-3 font-weight-bold">SIGN IN</button>
+                                        <button type="submit" class="btn btn-dark   btn-v-3 btn-h-3 font-weight-bold">SIGN IN</button>
                                     </div>
                                 </div>
                             </form>
@@ -126,7 +126,7 @@
                 
                             <div class="form-row">
                                 <div class="col text-right">
-                                    <button type="submit" class="btn btn-primary btn-rounded btn-v-3 btn-h-3 font-weight-bold">REGISTER NOW</button>
+                                    <button type="submit" class="btn btn-primary   btn-v-3 btn-h-3 font-weight-bold">REGISTER NOW</button>
                                 </div>
                             </div>
                         </form>

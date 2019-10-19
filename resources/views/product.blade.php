@@ -65,7 +65,7 @@
 								<input type="hidden" name="name" value="{{ $product->name }}">
 								<input type="hidden" name="price" value="{{ $product->price }}">  
 							</div>
-							<button type="submit" class="add-to-cart btn btn-primary btn-rounded font-weight-semibold btn-v-3 btn-h-2 btn-fs-2 ml-3">ADD TO CART</button>
+							<button type="submit" class="add-to-cart btn btn-primary   font-weight-semibold btn-v-3 btn-h-2 btn-fs-2 ml-3">ADD TO CART</button>
 						</form>
 					{{-- @endif --}}
 					<hr class="my-4">
@@ -227,7 +227,7 @@
 										</div>
 										<div class="form-row mt-2">
 											<div class="col">
-												<input type="submit" value="POST REVIEW" class="btn btn-primary btn-rounded btn-h-2 btn-v-2 font-weight-bold">
+												<input type="submit" value="POST REVIEW" class="btn btn-primary   btn-h-2 btn-v-2 font-weight-bold">
 											</div>
 										</div>
 									</form>

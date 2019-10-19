@@ -88,7 +88,7 @@
                                                             <span class="top-sub-title text-color-light-2 d-block">THE MOST</span>
                                                             <span class="text-color-light font-weight-bold d-block text-4 mb-2">POWERFUL</span>
                                                             <p class="text-color-light-2">A revolutionary theme trusted by tons of customers</p>
-                                                            <a class="btn btn-dark btn-rounded btn-v-3 btn-h-2 content-block-button font-weight-semibold" href="#">GET STARTED</a>
+                                                            <a class="btn btn-dark   btn-v-3 btn-h-2 content-block-button font-weight-semibold" href="#">GET STARTED</a>
                                                         </div>
                                                         <div class="col-lg-3 ml-auto">
                                                             <span class="dropdown-mega-sub-title">Food Grain</span>
@@ -288,7 +288,7 @@
                                                                                 <a href="#" id="headerSignUp" class="text-color-primary pl-0">Sign Up Now!</a>
                                                                             </div>
                                                                             <div class="col text-right">
-                                                                                <button type="submit" class="btn btn-primary btn-rounded btn-v-3 btn-h-3 text-color-light font-weight-bold">SIGN IN</button>
+                                                                                <button type="submit" class="btn btn-primary   btn-v-3 btn-h-3 text-color-light font-weight-bold">SIGN IN</button>
                                                                             </div>
                                                                         </div>
                                                                     </form>
@@ -344,7 +344,7 @@
                                                                                 <a href="#" id="headerSignIn" class="text-color-primary pl-0">Have an account?</a>
                                                                             </div>
                                                                             <div class="col text-right">
-                                                                                <button type="submit" class="btn btn-primary btn-rounded btn-v-3 btn-h-3 text-color-light font-weight-bold">SIGN UP</button>
+                                                                                <button type="submit" class="btn btn-primary   btn-v-3 btn-h-3 text-color-light font-weight-bold">SIGN UP</button>
                                                                             </div>
                                                                         </div>
                                                                     </form>
@@ -375,7 +375,7 @@
                                                                                 <a href="#" id="headerRecoverCancel" class="text-color-primary pl-0">Have an account?</a>
                                                                             </div>
                                                                             <div class="col text-right">
-                                                                                <button type="submit" class="btn btn-primary btn-rounded btn-v-3 btn-h-3 text-color-light font-weight-bold">SUBMIT</button>
+                                                                                <button type="submit" class="btn btn-primary   btn-v-3 btn-h-3 text-color-light font-weight-bold">SUBMIT</button>
                                                                             </div>
                                                                         </div>
                                                                     </form>
@@ -461,9 +461,9 @@
                                                                 <form action="{{ route('cart.destroy', $item->rowId) }}" method="POST">
                                                                     {{ csrf_field() }}
                                                                     {{ method_field('DELETE') }}
-                                                                    <button type="submit" class="btn btn-light btn-rounded justify-content-center align-items-center"><i class="fas fa-times" aria-label="Remove"></i></button>
+                                                                    <button type="submit" class="btn btn-light   justify-content-center align-items-center"><i class="fas fa-times" aria-label="Remove"></i></button>
                                                                 </form>
-                                                                {{-- <a href="#" class="btn btn-light btn-rounded justify-content-center align-items-center"><i class="fas fa-times"></i></a> --}}
+                                                                {{-- <a href="#" class="btn btn-light   justify-content-center align-items-center"><i class="fas fa-times"></i></a> --}}
                                                                 <img src="{{ asset('img/products/product-2.jpg') }}" class="img-fluid rounded" alt="" />
                                                             </div>
                                                         </div>

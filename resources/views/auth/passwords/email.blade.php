@@ -38,7 +38,7 @@
                             </div>
                             <div class="form-group row mb-0">
                                 <div class="col-md-6 offset-md-4">
-                                        <button type="submit" class="btn btn-dark btn-rounded btn-v-3 btn-h-3 font-weight-bold">Reset Password</button>
+                                        <button type="submit" class="btn btn-dark   btn-v-3 btn-h-3 font-weight-bold">Reset Password</button>
                                 </div>
                             </div>
                         </form>
