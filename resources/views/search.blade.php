@@ -9,7 +9,8 @@
                     <div class="col-md-12">
                         <ul class="breadcrumb">
                             <li><a href="index.html">Home</a></li>
-                            <li class="active">Shop</li>
+                            <li><a href="#">Shop</a></li>
+                            <li class="active">{{ ucfirst(trans($query)) }}</li>
                         </ul>
                     </div>
                 </div>
@@ -133,13 +134,8 @@
                     </aside>
                     <div class="col-md-8 col-lg-9 order-1 order-md-2 mb-5 mb-md-0">
                         <div class="row align-items-center justify-content-between mb-4">
-                            <div class="col-auto  col-md-4 mb-3 mb-sm-0">
-                                {{-- empty --}}
-                            </div>
-                            <div class="overflow-hidden col-md-4  mb-4">
-                                    <div class="col-auto col-md-4 ">
-                                            <h2>{{ ucfirst(trans($query)) }}</h2>
-                                        </div>
+                            <div class="col-auto col-md-8 ">
+                                <h2>{{ ucfirst(trans($query)) }}</h2>
                             </div>
                             <div class="col-auto col-md-4">
                                 <div class="d-flex align-items-center">

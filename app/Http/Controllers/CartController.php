@@ -12,6 +12,10 @@ use Cartalyst\Stripe\Exception\CardErrorException;
 
 class CartController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
 
     /*
     |           ____
@@ -31,12 +35,13 @@ class CartController extends Controller
      */
     public function index()
     {
-        
+        $mightAlsoLike = Product::mightAlsoLike()->get();
        return view('cart')->with([
-        'discount'      => getAmountAfterDiscount()->get('discount'),
-        'newSubtotal'   => getAmountAfterDiscount()->get('newSubtotal'),
-        'newTax'        => getAmountAfterDiscount()->get('newTax'),
-        'newTotal'      => getAmountAfterDiscount()->get('newTotal'),
+            'mightAlsoLike' => $mightAlsoLike,
+            'discount'      => getAmountAfterDiscount()->get('discount'),
+            'newSubtotal'   => getAmountAfterDiscount()->get('newSubtotal'),
+            'newTax'        => getAmountAfterDiscount()->get('newTax'),
+            'newTotal'      => getAmountAfterDiscount()->get('newTotal'),
        ]);
     }
 

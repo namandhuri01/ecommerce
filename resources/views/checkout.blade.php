@@ -39,8 +39,8 @@
 							</div>
 						@endif
 					</div>
-					</div>
-					<div class="row pb-4 mb-3">
+				</div>
+				{{-- <div class="row pb-4 mb-3">
 					<div class="col-md-6 mb-4 mb-md-0">
 						<div class="accordion accordion-default accordion-toggle accordion-style-1" role="tablist">
 							<div class="card">
@@ -110,7 +110,7 @@
 							</div>
 						</div>
 					</div>
-				</div>
+				</div> --}}
 				<div class="row">
 					<div class="col">
 						<div class="row mb-5">
@@ -245,13 +245,13 @@
 												<tr>
 													<td>
 														<span class="cart-total-label">Discount ({{ session()->get('coupon')['name']}})
-															<span style="display: inline-block;">
+															{{-- <span style="display: inline-block;">
 																<form action="{{ route('coupon.destroy')}}" method="POST">
 																	{{ csrf_field() }}
 																	{{ method_field('delete') }}
 																	<button type="submit" class="btn btn-remove font-weight-bold">Remove Coupon</button>
 																</form>
-															</span>
+															</span> --}}
 														</span>
 													</td>
 													<td>
