@@ -29,7 +29,6 @@
 						{{ session()->get('success_message') }}
 					</div>
 				@endif
-		
 				@if(count($errors) > 0)
 					<div class="alert alert-danger">
 						<ul>
@@ -271,6 +270,7 @@
 @endsection
 @section('extra-js')
 		<script src="{{ asset('js/app.js') }}"></script>
+		<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script>
         (function(){
             const classname = document.querySelectorAll('.quantity')
@@ -279,17 +279,35 @@
                 element.addEventListener('change', function() {
                     const id = element.getAttribute('data-id')
                     const productQuantity = element.getAttribute('data-productQuantity')
-
+					console.log(productQuantity);
                     axios.patch(`/cart/${id}`, {
                         quantity: this.value,
                         productQuantity: productQuantity
                     })
                     .then(function (response) {
-                        // console.log(response);
+						console.log(response.status);
+                        // if(response.status == 200){
+						// 	swal({
+						// 		title: response.data.success_message,
+						// 		text: "You clicked the button!",
+						// 		status: response.data.status,
+						// 		icon: "success",
+						// 		button: "Close",
+						// 	});
+						// }
+						// else{
+						// 	swal({
+						// 		title: response.data.success_message,
+						// 		text: "You clicked the button!",
+						// 		status: response.data.status,
+						// 		icon: "Danger",
+						// 		button: "Close",
+						// 	});
+						// }
                         window.location.href = '{{ route('cart.index') }}'
                     })
                     .catch(function (error) {
-                        // console.log(error);
+						console.log(error);
                         window.location.href = '{{ route('cart.index') }}'
                     });
                 })

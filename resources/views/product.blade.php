@@ -49,12 +49,12 @@
 					<p class="mt-4">{!! $product->details !!}</p>
 					<hr class="my-4">
 					<ul class="list list-unstyled">
-						<li>AVAILABILITY: <strong>AVAILABLE</strong></li>
+						<li>AVAILABILITY: <strong>{!!$stockLevel!!}</strong></li>
 						<li>SKU: <strong>{{$product->sku}}</strong></li>
 					</ul>
 					<hr class="my-4">
 					{{-- TODO: Check this if condition with andre --}}
-					{{-- @if ($product->quantity < 0) --}}
+					@if ($product->quantity > 0)
 						<form class="shop-cart d-flex align-items-center" method="POST" action="{{ route('cart.store', $product) }}" enctype="multipart/form-data">
 							{{ csrf_field() }}
 							<div class="quantity">
@@ -67,7 +67,9 @@
 							</div>
 							<button type="submit" class="add-to-cart btn btn-primary   font-weight-semibold btn-v-3 btn-h-2 btn-fs-2 ml-3">ADD TO CART</button>
 						</form>
-					{{-- @endif --}}
+					@else
+						<button type="submit" class="add-to-cart btn btn-primary   font-weight-semibold btn-v-3 btn-h-2 btn-fs-2 ml-3">Out Of Stock</button>
+						@endif
 					<hr class="my-4">
 					<div class="d-flex align-items-center">
 						<span class="text-2">SHARE</span>

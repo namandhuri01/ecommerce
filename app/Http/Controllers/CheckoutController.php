@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Log;
 use Mail;
 use App\Order;
+use App\Product;
 use App\OrderProduct;
 use App\Mail\OrderPlaced;
 use Illuminate\Http\Request;
@@ -28,6 +29,7 @@ class CheckoutController extends Controller
      */
     public function index()
     {
+
         return view('checkout')->with([
             'discount'      => getAmountAfterDiscount()->get('discount'),
             'newSubtotal'   => getAmountAfterDiscount()->get('newSubtotal'),
@@ -39,17 +41,25 @@ class CheckoutController extends Controller
     public function store(Request $request)
     {
         //  dd($request->all());
-    $contents = Cart::content()->map(function($item){
-        
-        return $item->model->slug.','.$item->qty;
+        if($this->productsAreNoLongerAvailable())
+        {
+            return back()->withErrors('Sorry! One Of the  items in your cart is no longer available. ');
+        }
+        $contents = Cart::content()->map(function($item){
+            
+            return $item->model->slug.','.$item->qty;
 
-    })->values()->toJson();
+        })->values()->toJson();
        
        try{
 
            $order =  $this->addToOrdersTables($request, null);
             
            Mail::send(new OrderPlaced($order));
+
+           // decrease the quantity of all products in the cart
+
+           $this->decreaseQuantities();
             //Successfull
             Cart::instance('default')->destroy();
             session()->forget('coupon');
@@ -98,6 +108,28 @@ class CheckoutController extends Controller
             ]);
         }
         return $order;
+    }
+
+    protected function decreaseQuantities() 
+    {
+        foreach (Cart::content() as $item) 
+        {
+            $product = Product::find($item->model->id);
+        
+            $product->update(['quantity' => $product->quantity - $item->qty]);
+        }
+    }
+    protected function productsAreNoLongerAvailable() 
+    {
+        foreach (Cart::content() as $item) 
+        {
+            $product = Product::find($item->model->id);
+            if($product->quantity  < $item->qty)
+            {
+                return true;
+            }
+        }
+        return false;
     }
 
 }

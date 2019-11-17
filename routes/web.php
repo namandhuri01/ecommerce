@@ -68,3 +68,5 @@ Route::get('/search', 'ShopController@search')->name('search');
 Route::get('/query', function(){
     return view('jquery');
 });
+
+Route::get('/showproduct','ShopController@showCategoryProduct');

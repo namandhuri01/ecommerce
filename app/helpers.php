@@ -26,23 +26,38 @@ function setActiveCategory($category, $output = 'active')
 }
 
 function getAmountAfterDiscount()
-    {
-        $tax = config('cart.tax') / 100;
-        $discount = session()->get('coupon')['discount'] ?? 0;
-        $code = session()->get('coupon')['name'] ?? null;
-        $newSubtotal = (Cart::subtotal() - $discount);
-        if ($newSubtotal < 0) {
-            $newSubtotal = 0;
-        }
-        $newTax = $newSubtotal * $tax;
-        $newTotal = $newSubtotal * (1 + $tax);
-        
-        return collect([
-            'tax'           => $tax,
-            'discount'      => $discount,
-            'newSubtotal'   => $newSubtotal,
-            'newTax'        => $newTax,
-            'newTotal'      => $newTotal,
-            'code'          => $code,
-        ]);
+{
+    $tax = config('cart.tax') / 100;
+    $discount = session()->get('coupon')['discount'] ?? 0;
+    $code = session()->get('coupon')['name'] ?? null;
+    $newSubtotal = (Cart::subtotal() - $discount);
+    if ($newSubtotal < 0) {
+        $newSubtotal = 0;
     }
+    $newTax = $newSubtotal * $tax;
+    $newTotal = $newSubtotal * (1 + $tax);
+    
+    return collect([
+        'tax'           => $tax,
+        'discount'      => $discount,
+        'newSubtotal'   => $newSubtotal,
+        'newTax'        => $newTax,
+        'newTotal'      => $newTotal,
+        'code'          => $code,
+    ]);
+}
+
+function getStockLevel($quantity)
+{
+    if($quantity > setting('site.stock'))
+    {
+        $stockLevel = '<div class="badge badge-success">AVAILABLE</div>';
+    }elseif($quantity <= setting('site.stock') && $quantity > 0 ){
+
+        $stockLevel = '<div class="badge badge-warning">Low Stock</div>';
+    }
+    else{
+        $stockLevel = '<div class="badge badge-danger">UNAVAILABLE</div>';
+    }
+    return $stockLevel;
+}

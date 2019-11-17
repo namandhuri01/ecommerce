@@ -62,9 +62,12 @@ class ShopController extends Controller
         $product = Product::where('slug', $slug)->firstOrFail();
         $mightAlsoLike = Product::where('slug','!=', $slug)->inRandomOrder()->take(4)->get();
 
+        $stockLevel = getStockLevel($product->quantity);
+
         return view('product')->with([
 
-            'product'=> $product,
+            'product'       => $product,
+            'stockLevel'    => $stockLevel,
             'mightAlsoLike' => $mightAlsoLike
             
         ]);
@@ -84,19 +87,40 @@ class ShopController extends Controller
         ]);
     }
 
-    public function priceSort(Request $request) {
+    // public function priceSort(Request $request) {
 
-        if(request()->sort == 'low_high')
-        {
-            $products = $products->orderBy('price')->paginate($pagination);
-        }
-        elseif(request()->sort == 'high_low')
-        {
-            $products = $products->orderBy('price', 'desc')->paginate($pagination);
-        }
-        else{
-            $products = $products->paginate($pagination);
-        }
+    //     if(request()->sort == 'low_high')
+    //     {
+    //         $products = $products->orderBy('price')->paginate($pagination);
+    //     }
+    //     elseif(request()->sort == 'high_low')
+    //     {
+    //         $products = $products->orderBy('price', 'desc')->paginate($pagination);
+    //     }
+    //     else{
+    //         $products = $products->paginate($pagination);
+    //     }
+    // }
+
+    public function showCategoryProduct()
+    {
+        $cat = Category::with('products')->get()->pluck('products')->unique();
+        $cats = Category::with('products')->get()->pluck('products')->flatten();
+        $cata = Category::with('products')->get()->flatten();
+        $products = Product::with('categories')->get();
+        $categories = Category::with('products')->get()->flatten();
+        // dd($categories);
+        // dd($products);
+        \Log::info($cat);
+        // \Log::info("namanjkdsv kjdlgvd vuid vuidsvghd vduvdvliu");
+        // \Log::error($cats);
+        // \Log::info("namkjcbh caha cjakc kjba cahc aianjkdsv kjdlgvd vuid vuidsvghd vduvdvliu");
+        // \Log::warning($cata);
+        // var_dump($cat->take(2));
+        // var_dump('Cats print ');
+        // var_dump($cats);
+        // die();
+        return view('showproduct')->with(['categories' => $categories]);
     }
    
 }
