@@ -51,7 +51,7 @@
                 <h2 class="text-3 mb-3">NEWSLETTER</h2>
                 <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet.</p>
                 
-                <form class="newsletter-form" action="https://preview.oklerthemes.com/ezy/1.1.0/php/newsletter-subscribe.php" method="POST">
+                <form class="newsletter-form" action="#" method="POST">
                     <div class="newsletter-form-success alert alert-success d-none">
                         <strong>Success!</strong> You've been added to our email list.
                     </div>
@@ -80,7 +80,7 @@
                     </ul>							
                 </div>				
                 <div class="col-md-5 col-lg-4">	
-                    <p class="text-md-right pb-0 mb-0">Copyrights © 2018. All Rights Reserved by Okler</p>				
+                    <p class="text-md-right pb-0 mb-0">Copyrights © 2019-<?php echo date('Y');?>. All Rights Reserved.</p>				
                 </div>						
             </div>					
         </div>				

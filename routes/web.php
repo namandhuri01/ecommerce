@@ -1,5 +1,5 @@
 <?php
-
+use App\Order;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -70,3 +70,10 @@ Route::get('/query', function(){
 });
 
 Route::get('/showproduct','ShopController@showCategoryProduct');
+
+Route::middleware('auth')->group(function(){
+    Route::get('/orders','OrdersController@index')->name('user.orders.index');
+   Route::get('/orders/{order}/','OrdersController@show')->name('user.orders.show');
+    	
+
+});
