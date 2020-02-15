@@ -14,31 +14,31 @@ use App\Order;
 Route::get('/', 'MainPageController@index')->name('home');
 
 // Shop Controller Route
-Route::get('/products', 'ShopController@index')->name('shop.index'); 
-Route::get('/product/{product}/', 'ShopController@show')->name('shop.show'); 
+Route::get('/products', 'ShopController@index')->name('shop.index');
+Route::get('/product/{product}/', 'ShopController@show')->name('shop.show');
 
 // Cart Controller Route
 
-Route::get('/cart', 'CartController@index')->name('cart.index'); 
-Route::post('/cart', 'CartController@store')->name('cart.store'); 
+Route::get('/cart', 'CartController@index')->name('cart.index');
+Route::post('/cart', 'CartController@store')->name('cart.store');
 Route::patch('/cart/{product}', 'CartController@update')->name('cart.update');
 Route::delete('/cart/{product}','CartController@destroy')->name('cart.destroy');
-Route::post('/cart/switchToSaveForLater/{product}', 'CartController@switchToSaveForLater')->name('cart.save'); 
+Route::post('/cart/switchToSaveForLater/{product}', 'CartController@switchToSaveForLater')->name('cart.save');
 
 // Save For Later cart Page
-Route::delete('/saveForLater/{product}', 'SaveForLaterController@destroy')->name('saveForLater.destroy'); 
-Route::post('/saveForLater/switchToSaveForLater/{product}', 'SaveForLaterController@switchToCart')->name('saveForLater.switchToCart'); 
+Route::delete('/saveForLater/{product}', 'SaveForLaterController@destroy')->name('saveForLater.destroy');
+Route::post('/saveForLater/switchToSaveForLater/{product}', 'SaveForLaterController@switchToCart')->name('saveForLater.switchToCart');
 
 //Coupon Code
-Route::post('/coupon', 'CouponController@store')->name('coupon.store'); 
-Route::get('/coupon', 'CouponController@index')->name('coupon.index'); 
-Route::delete('/coupon', 'CouponController@destroy')->name('coupon.destroy'); 
+Route::post('/coupon', 'CouponController@store')->name('coupon.store');
+Route::get('/coupon', 'CouponController@index')->name('coupon.index');
+Route::delete('/coupon', 'CouponController@destroy')->name('coupon.destroy');
 
 
 // Checkout Page
 
-Route::get('/checkout', 'CheckoutController@index')->name('checkout.index'); 
-Route::post('/checkout', 'CheckoutController@store')->name('checkout.store'); 
+Route::get('/checkout', 'CheckoutController@index')->name('checkout.index');
+Route::post('/checkout', 'CheckoutController@store')->name('checkout.store');
 
 //Product Category wise
 
@@ -74,6 +74,8 @@ Route::get('/showproduct','ShopController@showCategoryProduct');
 Route::middleware('auth')->group(function(){
     Route::get('/orders','OrdersController@index')->name('user.orders.index');
    Route::get('/orders/{order}/','OrdersController@show')->name('user.orders.show');
-    	
+});
 
+Route::get('chartjs', function(){
+    return view('chartjs');
 });
