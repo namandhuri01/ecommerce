@@ -14,7 +14,7 @@ class Coupon extends Model
 
     public function discount($total)
     {
-        if($this->type == 'fixed')
+        if($this->type == 'fixed_value')
         {
             return $this->value;
         }
