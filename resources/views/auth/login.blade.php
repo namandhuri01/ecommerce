@@ -1,7 +1,6 @@
 @extends('includes.header')
 @section('title', 'Login | Register')
 @section('content')
-{{-- TODO: Temprory form field  --}}
 <div role="main" class="main">
         <section class="page-header mb-0">
             <div class="container">

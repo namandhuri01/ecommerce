@@ -14,7 +14,7 @@ TODO:
 13. check login, register and password reset feature if work with auth properly then delete extra controller --Done 
 14. check login,register,password reset pages and menu -- Login ,menu and register work password reset check pending
 15. create new migration with krlove method.
-16. need table seed with reverse seed.
+16. need table seed with reverse seed. -- Done
 17. check if we add try catch method in controller or not.
 18. change shop controller name to product controller.
 19. check checkout controller form not working Due to stripe --Done
@@ -25,4 +25,3 @@ TODO:
 24. Create Order email template using bootstrap.
 25. show product category wise --Done
 26. Add Brands in products
-27. check git user27. check git user27. check git user27. check git user27. check git user27. check git user27. check git user27. check git user27. check git user27. check git user27. check git user27. check git user27. check git user27. check git user27. check git user27. check git user27. check git user27. check git user27. check git user27. check git user27. check git user27. check git user27. check git user27. check git user27. check git user27. check git user27. check git user
