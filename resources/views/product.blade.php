@@ -45,16 +45,16 @@
 						<i class="fas fa-star text-color-default"></i>									
 					</div>
 					<span class="price font-primary text-4"><strong class="text-color-dark">{{ $product->presentPrice() }}</strong></span>
-					<span class="old-price font-primary text-line-trough text-2"><strong class="text-color-default">{{ $product->presentPrice() }}</strong></span>
+				<span class="old-price font-primary text-line-trough text-2"><strong class="text-color-default">{{ $product->mrpPrice() }}</strong></span>
 					<p class="mt-4">{!! $product->details !!}</p>
 					<hr class="my-4">
 					<ul class="list list-unstyled">
-						<li>AVAILABILITY: <strong>AVAILABLE</strong></li>
+						<li>AVAILABILITY: <strong>{!!$stockLevel!!}</strong></li>
 						<li>SKU: <strong>{{$product->sku}}</strong></li>
 					</ul>
 					<hr class="my-4">
 					{{-- TODO: Check this if condition with andre --}}
-					{{-- @if ($product->quantity < 0) --}}
+					@if ($product->quantity > 0)
 						<form class="shop-cart d-flex align-items-center" method="POST" action="{{ route('cart.store', $product) }}" enctype="multipart/form-data">
 							{{ csrf_field() }}
 							<div class="quantity">
@@ -65,9 +65,11 @@
 								<input type="hidden" name="name" value="{{ $product->name }}">
 								<input type="hidden" name="price" value="{{ $product->price }}">  
 							</div>
-							<button type="submit" class="add-to-cart btn btn-primary btn-rounded font-weight-semibold btn-v-3 btn-h-2 btn-fs-2 ml-3">ADD TO CART</button>
+							<button type="submit" class="add-to-cart btn btn-primary   font-weight-semibold btn-v-3 btn-h-2 btn-fs-2 ml-3">ADD TO CART</button>
 						</form>
-					{{-- @endif --}}
+					@else
+						<button type="submit" class="add-to-cart btn btn-primary   font-weight-semibold btn-v-3 btn-h-2 btn-fs-2 ml-3">Out Of Stock</button>
+						@endif
 					<hr class="my-4">
 					<div class="d-flex align-items-center">
 						<span class="text-2">SHARE</span>
@@ -227,7 +229,7 @@
 										</div>
 										<div class="form-row mt-2">
 											<div class="col">
-												<input type="submit" value="POST REVIEW" class="btn btn-primary btn-rounded btn-h-2 btn-v-2 font-weight-bold">
+												<input type="submit" value="POST REVIEW" class="btn btn-primary   btn-h-2 btn-v-2 font-weight-bold">
 											</div>
 										</div>
 									</form>

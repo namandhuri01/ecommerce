@@ -13,28 +13,9 @@
 
 Route::get('/', 'MainPageController@index')->name('home');
 
-//Login Controller Routes
-Route::get('/login',function(){
-    return view('login');
-});
-Route::post('/login','LoginController@store');
-// Route::get('/login','LoginController@create')->name('login');
-Route::get('/signout','LoginController@destroy');
-
-// RegisterController Routes
-
-Route::get('/register','RegistrationController@create');
-Route::post('/register','RegistrationController@store');
-
-// Forgot Paswword Controller Routes
-Route::get('password/reset', 'ForgotPasswordController@showLinkRequestForm')->name('password.reset.link');
-Route::get('password/reset/{token}', 'ResetPasswordController@showResetForm')->name('password.reset.form');
-Route::post('password/email', 'ForgotPasswordController@sendResetLinkEmail')->name('password.email');
-Route::post('password/reset', 'ResetPasswordController@reset')->name('password.reset');
-
 // Shop Controller Route
 Route::get('/products', 'ShopController@index')->name('shop.index'); 
-Route::get('/product/{product}', 'ShopController@show')->name('shop.show'); 
+Route::get('/product/{product}/', 'ShopController@show')->name('shop.show'); 
 
 // Cart Controller Route
 
@@ -61,7 +42,8 @@ Route::post('/checkout', 'CheckoutController@store')->name('checkout.store');
 
 //Product Category wise
 
-Route::get('/category/{name}','ProductCategoryWiseController@index')->name('category.index');
+Route::get('/category','ProductCategoryWiseController@index')->name('category.index');
+Route::get('/category/{id}','ProductCategoryWiseController@show')->name('category.show');
 
 Route::get('empty', function(){
 
@@ -72,3 +54,19 @@ Route::get('empty', function(){
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
 });
+
+Auth::routes();
+
+// Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/placed', function(){
+    return view('email.orders.placed');
+});
+
+// Search route
+Route::get('/search', 'ShopController@search')->name('search');
+Route::get('/query', function(){
+    return view('jquery');
+});
+
+Route::get('/showproduct','ShopController@showCategoryProduct');

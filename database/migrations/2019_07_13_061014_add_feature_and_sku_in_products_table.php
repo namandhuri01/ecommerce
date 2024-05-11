@@ -16,6 +16,7 @@ class AddFeatureAndSkuInProductsTable extends Migration
         Schema::table('products', function (Blueprint $table) {
             $table->boolean('featured')->default(false);
             $table->string('sku')->nullable();
+            $table->integer('MRP');
 
         });
     }
@@ -30,6 +31,8 @@ class AddFeatureAndSkuInProductsTable extends Migration
         Schema::table('products', function (Blueprint $table) {
             $table->dropColumn('sku');
             $table->dropColumn('featured');
+            $table->dropColumn('MRP');
+
         });
     }
 }

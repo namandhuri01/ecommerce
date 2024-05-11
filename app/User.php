@@ -30,13 +30,9 @@ class User extends \TCG\Voyager\Models\User
         'password', 'remember_token',
     ];
 
-     public function tasks()
+    public function orders()
     {
-        return $this->hasMany(Task::class); 
+        return $this->hasMany('App\Order');
     }
-    public function publish(Task $task)
 
-    {
-        $this->tasks()->save($task);
-    }
 }

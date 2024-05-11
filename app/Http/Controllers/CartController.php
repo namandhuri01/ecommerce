@@ -12,6 +12,10 @@ use Cartalyst\Stripe\Exception\CardErrorException;
 
 class CartController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
 
     /*
     |           ____
@@ -31,12 +35,13 @@ class CartController extends Controller
      */
     public function index()
     {
-        
+        $mightAlsoLike = Product::mightAlsoLike()->get();
        return view('cart')->with([
-        'discount'      => $this->getAmountAfterDiscount()->get('discount'),
-        'newSubtotal'   => $this->getAmountAfterDiscount()->get('newSubtotal'),
-        'newTax'        => $this->getAmountAfterDiscount()->get('newTax'),
-        'newTotal'      => $this->getAmountAfterDiscount()->get('newTotal'),
+            'mightAlsoLike' => $mightAlsoLike,
+            'discount'      => getAmountAfterDiscount()->get('discount'),
+            'newSubtotal'   => getAmountAfterDiscount()->get('newSubtotal'),
+            'newTax'        => getAmountAfterDiscount()->get('newTax'),
+            'newTotal'      => getAmountAfterDiscount()->get('newTotal'),
        ]);
     }
 
@@ -79,18 +84,23 @@ class CartController extends Controller
      */
     public function update(Request $request, $id)
     {
+        // dd($request->all());
         $validator = Validator::make($request->all(), [
-            'quantity' => 'bail|required|numeric|between:1,9|min:1'
+            'quantity' => 'bail|required|numeric|between:1,20|min:1'
         ]);
 
         if ($validator->fails()) {
             session()->flash('errors', collect(['Quantity must be between 1 and 9.']));
             return response()->json(['success' => false], 400);
         }
+        if ($request->quantity > $request->productQuantity) {
+            session()->flash('errors', collect(['We currently do not have enough items in stock.']));
+            return response()->json(['success' => false],419);
+        }
 
         Cart::update($id, $request->quantity);
         session()->flash('success_message', 'Quantity was updated successfully!');
-        return response()->json(['success' => true]);
+        return response()->json(['success' => true,'code'=>200,'success_message' => 'Quantity was updated successfully!']);
     }
 
     /**
@@ -165,19 +175,4 @@ class CartController extends Controller
         return redirect()->route('cart.index')->with('success_message', 'Item has been Saved For Later!');
     }
 
-    private function getAmountAfterDiscount()
-    {
-        $tax = config('cart.tax') /100;
-        $discount = session()->get('coupon')['discount'] ?? 0;
-        $newSubtotal = (Cart::subtotal() - $discount);
-        $newTax = $newSubtotal * $tax;
-        $newTotal = $newSubtotal * (1 + $tax);
-        
-        return collect([
-            'discount'  => $discount,
-            'newSubtotal'   => $newSubtotal,
-            'newTax'        => $newTax,
-            'newTotal'      => $newTotal,
-        ]);
-    }
 }

@@ -29,7 +29,6 @@
 						{{ session()->get('success_message') }}
 					</div>
 				@endif
-		
 				@if(count($errors) > 0)
 					<div class="alert alert-danger">
 						<ul>
@@ -115,8 +114,8 @@
 															</div>
 														</div>
 														<div class="col-md-7 text-right px-0">
-															<button class="btn btn-dark btn-outline btn-rounded font-weight-bold btn-h-2 btn-v-3">UPDATE CART</button>
-															<a href="/checkout" class="btn btn-primary btn-rounded font-weight-bold btn-h-2 btn-v-3">PROCEED TO CHECKOUT</a>
+															<button class="btn btn-dark btn-outline   font-weight-bold btn-h-2 btn-v-3">UPDATE CART</button>
+															<a href="/checkout" class="btn btn-primary   font-weight-bold btn-h-2 btn-v-3">PROCEED TO CHECKOUT</a>
 														</div>
 													</div>
 												</td>
@@ -190,7 +189,7 @@
 					</div>
 				@else
 					<h3>No Item in cart</h3>
-					<a href="{{ route('shop.index') }}" class="btn btn-primary btn-rounded font-weight-semibold btn-v-3 btn-fs-2">Continue Shopping</a>
+					<a href="{{ route('shop.index') }}" class="btn btn-primary   font-weight-semibold btn-v-3 btn-fs-2">Continue Shopping</a>
 				@endif
 			</div>
 		</section>
@@ -271,6 +270,7 @@
 @endsection
 @section('extra-js')
 		<script src="{{ asset('js/app.js') }}"></script>
+		<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script>
         (function(){
             const classname = document.querySelectorAll('.quantity')
@@ -279,17 +279,35 @@
                 element.addEventListener('change', function() {
                     const id = element.getAttribute('data-id')
                     const productQuantity = element.getAttribute('data-productQuantity')
-
+					console.log(productQuantity);
                     axios.patch(`/cart/${id}`, {
                         quantity: this.value,
                         productQuantity: productQuantity
                     })
                     .then(function (response) {
-                        // console.log(response);
+						console.log(response.status);
+                        // if(response.status == 200){
+						// 	swal({
+						// 		title: response.data.success_message,
+						// 		text: "You clicked the button!",
+						// 		status: response.data.status,
+						// 		icon: "success",
+						// 		button: "Close",
+						// 	});
+						// }
+						// else{
+						// 	swal({
+						// 		title: response.data.success_message,
+						// 		text: "You clicked the button!",
+						// 		status: response.data.status,
+						// 		icon: "Danger",
+						// 		button: "Close",
+						// 	});
+						// }
                         window.location.href = '{{ route('cart.index') }}'
                     })
                     .catch(function (error) {
-                        // console.log(error);
+						console.log(error);
                         window.location.href = '{{ route('cart.index') }}'
                     });
                 })

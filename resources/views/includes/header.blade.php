@@ -10,8 +10,8 @@
 
 		<meta name="csrf-token" content="{{ csrf_token() }}">
 
-		<meta name="keywords" content="HTML5 Template" />
-		<meta name="description" content="EZY - Responsive HTML5 Template">
+		<meta name="keywords" content="grocery shop, grocery online, ecommerce bucket, online grocery patiala, online grocery near me, grocery holesale" />
+		<meta name="description" content="Ecommerce Bucket in a grocery shop who selling household grocery online">
 		<meta name="author" content="okler.net">
 
 		<!-- Mobile Metas -->
@@ -44,7 +44,7 @@
 		<link rel="stylesheet" href="{{ asset('vendor/rs-plugin/css/navigation.css') }}">
 
 		<!-- Skin CSS -->
-		<link rel="stylesheet" href="{{ asset('css/skins/default.css') }}">		
+		{{-- <link rel="stylesheet" href="{{ asset('css/skins/default.css') }}">		 --}}
 		<script src="{{ asset('master/style-switcher/style.switcher.localstorage.js') }}"></script> 
 
 		<!-- Theme Custom CSS -->

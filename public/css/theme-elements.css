@@ -1383,7 +1383,7 @@ html.ie .nav-secondary.nav-secondary-style-2 {
 }
 
 /* Border Buttons */
-.btn-rounded {
+.  {
 	border-radius: 50px;
 }
 
@@ -1483,7 +1483,7 @@ html.ie .nav-secondary.nav-secondary-style-2 {
 	padding-left: 5.5em !important;
 }
 
-.btn-group.btn-group-style-1 > .btn-rounded, .btn-group.btn-group-style-1 > .btn-outline {
+.btn-group.btn-group-style-1 > . , .btn-group.btn-group-style-1 > .btn-outline {
 	position: relative;
 	border-radius: 50px !important;
 }
@@ -3388,7 +3388,7 @@ html.ie .owl-carousel .image-frame .image-frame-wrapper a > img {
 	transition: ease all 300ms;
 }
 
-.accordion.accordion-style-2 .accordion-header a.btn-rounded {
+.accordion.accordion-style-2 .accordion-header a.  {
 	border-radius: 50px;
 }
 

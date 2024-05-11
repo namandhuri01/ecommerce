@@ -27,12 +27,13 @@ class CheckoutRequest extends FormRequest
 
         return [
             'email' => $emailValidation,
-            'name' => 'required',
-            'address' => 'required',
-            'city' => 'required',
-            'province' => 'required',
-            'postalcode' => 'required',
-            'phone' => 'required',
+            'fname' => 'bail|required',
+            'lname' => 'bail|required',
+            'address_line1' => 'bail|required',
+            'city' => 'bail|required',
+            'state' => 'bail|required',
+            'zip' => 'bail|required',
+            'phone' => 'bail|required',
         ];
     }
 

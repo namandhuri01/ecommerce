@@ -8,31 +8,28 @@ use Illuminate\Http\Request;
 
 class ProductCategoryWiseController extends Controller
 {
-    public function index($name)
+    public function index()
     {
-        $categories= Category::select('id')->where('name', $name)->first();
-        // dd(Category::where('name', $name)->first());
-        $categoryName = $name;
-        $pagination = 12;
-        // $categories = $categories->name;
-        $products = $categories->products->take(10);
+        
+        $categories = Category::all();
+        
+        return view('productcategorywise.laptop')->with(['categories' => $categories]);
+    }
+    public function show($id)
+    {
+        
+        $category= Category::where('name', $id)->first();
 
-      
-        // if(request()->sort == 'low_high')
-        // {
-        //     $products = $products->orderBy('price');
-        // }
-        // elseif(request()->sort == 'high_low')
-        // {
-        //     $products = $products->orderBy('price', 'desc');
-        // }
-        // else{
-        //     $products = $products->take(15);
-        // }
+        $products = $category->products;
+        $categoryName = $id;
+        
+        $pagination = 12;
+        
+        
         return view('productcategorywise.laptop')->with([
             'products'      => $products,
-            'categories'    => $categories,
-            'categoryName' => $categoryName,
+            'category'      => $category,
+            'categoryName'  => $categoryName,
         ]);
     }
     

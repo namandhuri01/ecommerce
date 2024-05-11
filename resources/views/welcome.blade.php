@@ -55,7 +55,7 @@
                                 data-transform_out="y:[100%];opacity:0;s:500;"
                                 data-mask_in="x:0px;y:0px;">COOL GIRLS STYLE UP TO <span class="bg-light text-color-dark font-weight-bold p-1">40% OFF</span></div>
 
-                            <a class="tp-caption btn btn-rounded btn-primary font-weight-semibold text-1"
+                            <a class="tp-caption btn   btn-primary font-weight-semibold text-1"
                                 href="shop-3-columns-right-sidebar.html"
                                 data-x="left" data-hoffset="['50','50','15','15']"
                                 data-y="center" data-voffset="['115','115','115','115']"
@@ -123,7 +123,7 @@
                                 data-mask_in="x:0px;y:0px;">SALE UP TO <span class="bg-light text-color-dark font-weight-bold p-1">35% OFF</span>
                             </div>
 
-                        <a class="tp-caption btn btn-rounded btn-primary font-weight-semibold text-1"
+                        <a class="tp-caption btn   btn-primary font-weight-semibold text-1"
                             href="shop-3-columns-right-sidebar.html"
                             data-x="left" data-hoffset="['750','630','420','290']"
                             data-y="center" data-voffset="['115','115','115','115']"
@@ -154,7 +154,7 @@
                                 <div class="image-frame-info image-frame-info-show flex-column align-items-start px-4 mx-2">
                                     <span class="text-color-dark font-primary font-weight-bold text-3">Amazing</span>
                                     <h2 class="text-color-dark font-weight-bold text-4 mb-4">LADIES BOOTS</h2>
-                                    <a href="shop-3-columns-left-sidebar.html" class="btn btn-dark btn-rounded font-weight-bold btn-h-1 btn-v-3 text-0">SALE UP TO 20%</a>
+                                    <a href="shop-3-columns-left-sidebar.html" class="btn btn-dark   font-weight-bold btn-h-1 btn-v-3 text-0">SALE UP TO 20%</a>
                                 </div>
                             </div>
                         </div>
@@ -166,7 +166,7 @@
                                 <div class="image-frame-info image-frame-info-show flex-column align-items-start px-4 mx-2">
                                     <span class="text-color-dark font-primary font-weight-bold text-3">Cool</span>
                                     <h2 class="text-color-dark font-weight-bold text-4 mb-4">MENS JACKETS</h2>
-                                    <a href="shop-3-columns-left-sidebar.html" class="btn btn-dark btn-rounded font-weight-bold btn-h-1 btn-v-3 text-0">SALE UP TO 15%</a>
+                                    <a href="shop-3-columns-left-sidebar.html" class="btn btn-dark   font-weight-bold btn-h-1 btn-v-3 text-0">SALE UP TO 15%</a>
                                 </div>
                             </div>
                         </div>
@@ -178,7 +178,7 @@
                                 <div class="image-frame-info image-frame-info-show flex-column align-items-start px-4 mx-2">
                                     <span class="text-color-dark font-primary font-weight-bold text-3">Trendy</span>
                                     <h2 class="text-color-dark font-weight-bold text-4 mb-4">SCHOOL BAG</h2>
-                                    <a href="shop-3-columns-left-sidebar.html" class="btn btn-dark btn-rounded font-weight-bold btn-h-1 btn-v-3 text-0">SALE UP TO 70%</a>
+                                    <a href="shop-3-columns-left-sidebar.html" class="btn btn-dark   font-weight-bold btn-h-1 btn-v-3 text-0">SALE UP TO 70%</a>
                                 </div>
                             </div>
                         </div>
@@ -231,14 +231,14 @@
                                                     <input type="hidden" name="id" value="{{ $product->id }}">
                                                     <input type="hidden" name="name" value="{{ $product->name }}">
                                                     <input type="hidden" name="price" value="{{ $product->price }}">
-                                                    <button type="submit" class="btn btn-primary btn-rounded font-weight-semibold btn-v-3 btn-fs-2">Add To Cart</button>
+                                                    <button type="submit" class="btn btn-primary   font-weight-semibold btn-v-3 btn-fs-2">Add To Cart</button>
                                                 </form>
                                             </div>
                                         </div>
                                     </div>
                                     <h3 class="text-color-default text-2 mb-0"><a href="{{ route('shop.show', $product->slug) }}">{{$product->name}}</a></h3>
                                     <span class="price font-primary text-4"><strong class="text-color-dark">{{$product->presentPrice()}}</strong></span>
-                                    <span class="old-price font-primary text-line-trough text-2"><strong class="text-color-default">{{$product->presentPrice()}}</strong></span>
+                                    <span class="old-price font-primary text-line-trough text-2"><strong class="text-color-default">{{$product->mrpPrice()}}</strong></span>
                                 </div>
                             @endforeach
                         </div>
@@ -354,7 +354,7 @@
             </div>
         </section>
         {{-- Background color category section --}}
-        {{-- Product grid section --}}
+        {{-- Product grid section new Arrivals --}}
         <section class="section">
                 <div class="container">
                     <div class="row text-center mb-4">
@@ -382,14 +382,22 @@
                                                     <input type="hidden" name="id" value="{{ $product->id }}">
                                                     <input type="hidden" name="name" value="{{ $product->name }}">
                                                     <input type="hidden" name="price" value="{{ $product->price }}">
-                                                    <button type="submit" class="btn btn-primary btn-rounded font-weight-semibold btn-v-3 btn-fs-2">Add To Cart</button>
+                                                    <button type="submit" class="btn btn-primary   font-weight-semibold btn-v-3 btn-fs-2">Add To Cart</button>
                                                 </form>
                                             </div>
                                         </span>
                                     </div>
                                     <h3 class="text-color-default text-2 mb-0"><a href="{{ route('shop.show', $product->slug) }}">{{ $product->name }}</a></h3>
                                     <span class="price font-primary text-4"><strong class="text-color-dark">{{ $product->presentPrice() }}</strong></span>
-                                    <span class="old-price font-primary text-line-trough text-2"><strong class="text-color-default">{{ $product->presentPrice() }}</strong></span>
+                                    <span class="old-price font-primary text-line-trough text-2"><strong class="text-color-default">
+                                        
+                                        @if($product->mrpPrice() == 0)
+                                            {{$product->presentPrice()}}
+                                        @else
+                                            {{$product->mrpPrice()}}
+                                        
+                                        @endif
+                                    </strong></span>
                                 </div>
                             </div>
                         @endforeach
@@ -487,7 +495,7 @@
                                     <div class="col-8">
                                         <h3 class="text-color-default text-2 mb-0"><a href="{{ route('shop.show', $product->slug) }}">{{ $product->name }}</a></h3>
                                         <span class="price font-primary text-4"><strong class="text-color-dark">{{ $product->presentPrice() }}</strong></span>
-                                        <span class="old-price font-primary text-line-trough text-2"><strong class="text-color-default">{{ $product->presentPrice() }}</strong></span>
+                                        <span class="old-price font-primary text-line-trough text-2"><strong class="text-color-default">{{ $product->mrpPrice() }}</strong></span>
                                     </div>
                                 </div>
                             @endforeach
@@ -526,7 +534,7 @@
                                     <img src="img/shop/product-bg-14.jpg" class="img-fluid" alt="">
                                     <div class="image-frame-info image-frame-info-show flex-column align-items-start px-4 mx-2">
                                         <h2 class="text-color-light font-weight-semibold text-4 line-height-1 mb-4"><strong class="font-weight-semibold text-6">55% OFF</strong><br>SUNGLASSES</h2>
-                                        <a href="shop-3-columns-left-sidebar.html" class="btn btn-primary btn-rounded font-weight-bold btn-h-2 btn-v-3">SHOP NOW</a>
+                                        <a href="shop-3-columns-left-sidebar.html" class="btn btn-primary   font-weight-bold btn-h-2 btn-v-3">SHOP NOW</a>
                                     </div>
                                 </div>
                             </div>

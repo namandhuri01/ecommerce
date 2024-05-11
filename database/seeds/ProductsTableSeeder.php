@@ -18,6 +18,7 @@ class ProductsTableSeeder extends Seeder
                 'slug' => 'laptop-'.$i,
                 'details' => [13,14,15][array_rand([13,14,15])] . ' inch, ' . [1, 2, 3][array_rand([1, 2, 3])] .' TB SSD, 32GB RAM',
                 'price' => rand(149999, 249999),
+                'mrp'   => rand(15999, 25999),
                 'description' =>'Lorem '. $i . ' ipsum dolor sit amet, consectetur adipisicing elit. Ipsum temporibus iusto ipsa, asperiores voluptas unde aspernatur praesentium in? Aliquam, dolore!',
             ])->categories()->attach(1);
         }
@@ -33,6 +34,7 @@ class ProductsTableSeeder extends Seeder
                 'slug' => 'desktop-' . $i,
                 'details' => [24, 25, 27][array_rand([24, 25, 27])] . ' inch, ' . [1, 2, 3][array_rand([1, 2, 3])] . ' TB SSD, 32GB RAM',
                 'price' => rand(249999, 449999),
+                'mrp'   => rand(26999, 45999),
                 'description' => 'Lorem ' . $i . ' ipsum dolor sit amet, consectetur adipisicing elit. Ipsum temporibus iusto ipsa, asperiores voluptas unde aspernatur praesentium in? Aliquam, dolore!',
             ])->categories()->attach(2);
         }
@@ -43,6 +45,7 @@ class ProductsTableSeeder extends Seeder
                 'name' => 'Phone ' . $i,
                 'slug' => 'phone-' . $i,
                 'details' => [16, 32, 64][array_rand([16, 32, 64])] . 'GB, 5.' . [7, 8, 9][array_rand([7, 8, 9])] . ' inch screen, 4GHz Quad Core',
+                'mrp'   => rand(89999, 169999),
                 'price' => rand(79999, 149999),
                 'description' => 'Lorem ' . $i . ' ipsum dolor sit amet, consectetur adipisicing elit. Ipsum temporibus iusto ipsa, asperiores voluptas unde aspernatur praesentium in? Aliquam, dolore!',
             ])->categories()->attach(3);
@@ -54,6 +57,7 @@ class ProductsTableSeeder extends Seeder
                 'name' => 'Tablet ' . $i,
                 'slug' => 'tablet-' . $i,
                 'details' => [16, 32, 64][array_rand([16, 32, 64])] . 'GB, 5.' . [10, 11, 12][array_rand([10, 11, 12])] . ' inch screen, 4GHz Quad Core',
+                'mrp'   => rand(59999, 159999),
                 'price' => rand(49999, 149999),
                 'description' => 'Lorem ' . $i . ' ipsum dolor sit amet, consectetur adipisicing elit. Ipsum temporibus iusto ipsa, asperiores voluptas unde aspernatur praesentium in? Aliquam, dolore!',
             ])->categories()->attach(4);
@@ -65,6 +69,7 @@ class ProductsTableSeeder extends Seeder
                 'name' => 'TV ' . $i,
                 'slug' => 'tv-' . $i,
                 'details' => [46, 50, 60][array_rand([7, 8, 9])] . ' inch screen, Smart TV, 4K',
+                'mrp'   => rand(89999, 259999),
                 'price' => rand(79999, 149999),
                 'description' => 'Lorem ' . $i . ' ipsum dolor sit amet, consectetur adipisicing elit. Ipsum temporibus iusto ipsa, asperiores voluptas unde aspernatur praesentium in? Aliquam, dolore!',
             ])->categories()->attach(5);
@@ -76,7 +81,8 @@ class ProductsTableSeeder extends Seeder
                 'name' => 'Camera ' . $i,
                 'slug' => 'camera-' . $i,
                 'details' => 'Full Frame DSLR, with 18-55mm kit lens.',
-                'price' => rand(79999, 249999),
+                'price' => rand(79999, 249999), 
+                'mrp'   => rand(89999, 259999),
                 'description' => 'Lorem ' . $i . ' ipsum dolor sit amet, consectetur adipisicing elit. Ipsum temporibus iusto ipsa, asperiores voluptas unde aspernatur praesentium in? Aliquam, dolore!',
             ])->categories()->attach(6);
         }
@@ -88,6 +94,7 @@ class ProductsTableSeeder extends Seeder
                 'slug' => 'appliance-' . $i,
                 'details' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis, dolorum!',
                 'price' => rand(79999, 149999),
+                'mrp'   => rand(89999, 259999),
                 'description' => 'Lorem ' . $i . ' ipsum dolor sit amet, consectetur adipisicing elit. Ipsum temporibus iusto ipsa, asperiores voluptas unde aspernatur praesentium in? Aliquam, dolore!',
             ])->categories()->attach(7);
         }
