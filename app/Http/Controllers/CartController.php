@@ -6,6 +6,8 @@ use App\Product;
 use Illuminate\Http\Request;
 use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Support\Facades\Validator;
+use Cartalyst\Stripe\Laravel\Facades\Stripe;
+use Cartalyst\Stripe\Exception\CardErrorException;
 
 
 class CartController extends Controller
@@ -30,7 +32,6 @@ class CartController extends Controller
     public function index()
     {
         
-
        return view('cart')->with([
         'discount'      => $this->getAmountAfterDiscount()->get('discount'),
         'newSubtotal'   => $this->getAmountAfterDiscount()->get('newSubtotal'),
@@ -166,7 +167,7 @@ class CartController extends Controller
 
     private function getAmountAfterDiscount()
     {
-        $tax = config('cart.tax') / 100;
+        $tax = config('cart.tax') /100;
         $discount = session()->get('coupon')['discount'] ?? 0;
         $newSubtotal = (Cart::subtotal() - $discount);
         $newTax = $newSubtotal * $tax;

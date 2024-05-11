@@ -18,6 +18,11 @@ class CheckoutController extends Controller
      */
     public function index()
     {
+        $tax = config('cart.tax') / 100;
+        $discount = session()->get('coupon')['discount'] ?? 0;
+        $newSubtotal = (Cart::subtotal() - $discount);
+        $newTax = $newSubtotal * $tax;
+        $newTotal = $newSubtotal * (1 + $tax);
        return view('checkout')->with([
         'discount'      => $this->getAmountAfterDiscount()->get('discount'),
         'newSubtotal'   => $this->getAmountAfterDiscount()->get('newSubtotal'),
@@ -28,9 +33,13 @@ class CheckoutController extends Controller
 
     public function store(CheckoutRequest $request)
     {
+
     $contents = Cart::content()->map(function($item){
+        
         return $item->model->slug.','.$item->qty;
+
     })->values()->toJson();
+
        try{
 
             $charge = Stripe::charges()->create([
@@ -55,9 +64,11 @@ class CheckoutController extends Controller
 
             return back()->with('success message','Thank You! Your Payment Has been successfully Accepted!');
 
-        } catch(CardErrorException $e) {
+        } 
+        catch(CardErrorException $e) {
+        
             return back()->withErrors('Error! ' . $e->getMessage());
-       }
+        }
     }
     private function getAmountAfterDiscount()
     {

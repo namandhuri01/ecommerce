@@ -20,10 +20,15 @@ class MainPageController extends Controller
     public function index() {
 
         // $product = Product::inRandomOrder()->take(20)->get();
-        $product = Product::inRandomOrder()->take(20)->get();
+        $product = Product::inRandomOrder()->take(8)->get();
 
         return view('welcome')->with('products', $product);
 
+    }
+
+    public function show() {
+
+        $product::with('category')->where('');
     }
 
 }

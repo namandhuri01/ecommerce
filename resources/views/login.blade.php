@@ -78,7 +78,7 @@
                                 </div>
                                 <div class="form-group col-lg-6">
                                     <label class="text-color-dark" for="email">EMAIL ADDRESS:</label>
-                                    <input type="email" class="form-control bg-light-5 border-0 rounded" id="email" name="email"placeholder="John.doe@example.com" required >
+                                    <input type="email" class="form-control bg-light-5 border-0 rounded" id="email" name="email" placeholder="John.doe@example.com" required >
                                 </div>
                             </div>
                             <div class="form-row">

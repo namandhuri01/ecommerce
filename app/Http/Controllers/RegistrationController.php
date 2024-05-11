@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
 use Illuminate\Support\Facades\Hash;
+use TCG\Voyager\Models\Role;
 
 
 
@@ -39,6 +40,8 @@ class RegistrationController extends Controller
 			'phone'			=> $request->phone,
 
 		]);
+		$role = Role::findOrFail(2);
+		$user->attachRole($role);
 		return view('login');
 		return response()->json(["data"=> $user],200);
 	} 
