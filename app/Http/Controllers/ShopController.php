@@ -76,7 +76,7 @@ class ShopController extends Controller
     public function search(Request $request) {
 
         $query = $request->input('query');
-        dd($query);
+        
         $products = Product::where('name','Like', "%$query%")
                         ->orWhere('details', 'Like',"%$query%")
                         ->orWhere('description', 'Like',"%$query%")
